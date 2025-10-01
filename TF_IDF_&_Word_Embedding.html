@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Load dataset &#8212; Pencarian dan Penambangan Web</title>
+    <title>TF-IDF &amp; WORD EMBEDDING, KLASIFIKASI SVM &amp; NAIVE BAYES &#8212; Pencarian dan Penambangan Web</title>
   
   
   
@@ -187,11 +187,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Pre_processing.html"><strong>Pre-Processing Text</strong></a></li>
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Load dataset</a></li>
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TF-IDF &amp; WORD EMBEDDING, KLASIFIKASI SVM &amp; NAIVE BAYES</a></li>
 </ul>
 
     </div>
@@ -377,7 +373,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Load dataset</h1>
+    <h1>TF-IDF & WORD EMBEDDING, KLASIFIKASI SVM & NAIVE BAYES</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -387,13 +383,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Load dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#word-embedding">Word Embedding</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-tf-idf-dan-word-emedding-mengunakan-svm-dan-naive-bayes">Perbandingan TF-IDF dan Word Emedding mengunakan SVM dan Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-embedding">Word Embedding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-tf-idf-dan-word-emedding-mengunakan-svm-dan-naive-bayes">Perbandingan TF-IDF dan Word Emedding mengunakan SVM dan Naive Bayes</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -404,8 +398,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="load-dataset">
-<h1>Load dataset<a class="headerlink" href="#load-dataset" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tf-idf-word-embedding-klasifikasi-svm-naive-bayes">
+<h1>TF-IDF &amp; WORD EMBEDDING, KLASIFIKASI SVM &amp; NAIVE BAYES<a class="headerlink" href="#tf-idf-word-embedding-klasifikasi-svm-naive-bayes" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">google.colab</span><span class="w"> </span><span class="kn">import</span> <span class="n">drive</span>
@@ -480,9 +474,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
 <section id="tf-idf">
-<h1>TF-IDF<a class="headerlink" href="#tf-idf" title="Link to this heading">#</a></h1>
+<h2>TF-IDF<a class="headerlink" href="#tf-idf" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -574,7 +567,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 </div>
 </section>
 <section id="word-embedding">
-<h1>Word Embedding<a class="headerlink" href="#word-embedding" title="Link to this heading">#</a></h1>
+<h2>Word Embedding<a class="headerlink" href="#word-embedding" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -675,7 +668,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 </div>
 </section>
 <section id="visualisasi">
-<h1>Visualisasi<a class="headerlink" href="#visualisasi" title="Link to this heading">#</a></h1>
+<h2>Visualisasi<a class="headerlink" href="#visualisasi" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
@@ -723,7 +716,7 @@ Requirement already satisfied: wrapt in /usr/local/lib/python3.12/dist-packages 
 </div>
 </section>
 <section id="perbandingan-tf-idf-dan-word-emedding-mengunakan-svm-dan-naive-bayes">
-<h1>Perbandingan TF-IDF dan Word Emedding mengunakan SVM dan Naive Bayes<a class="headerlink" href="#perbandingan-tf-idf-dan-word-emedding-mengunakan-svm-dan-naive-bayes" title="Link to this heading">#</a></h1>
+<h2>Perbandingan TF-IDF dan Word Emedding mengunakan SVM dan Naive Bayes<a class="headerlink" href="#perbandingan-tf-idf-dan-word-emedding-mengunakan-svm-dan-naive-bayes" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -793,6 +786,7 @@ Average Naive Bayes accuracy (TF-IDF): 0.625
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -849,13 +843,11 @@ Average Naive Bayes accuracy (TF-IDF): 0.625
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Load dataset</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#word-embedding">Word Embedding</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-tf-idf-dan-word-emedding-mengunakan-svm-dan-naive-bayes">Perbandingan TF-IDF dan Word Emedding mengunakan SVM dan Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF-IDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-embedding">Word Embedding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi">Visualisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-tf-idf-dan-word-emedding-mengunakan-svm-dan-naive-bayes">Perbandingan TF-IDF dan Word Emedding mengunakan SVM dan Naive Bayes</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
