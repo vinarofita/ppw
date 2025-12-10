@@ -1,0 +1,1847 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ekstraksi PDF ke Teks &#8212; Pencarian dan Penambangan Web</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data_paper';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Analisis Komunitas" href="data_facebook.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/vina.jpg" class="logo__image only-light" alt="Pencarian dan Penambangan Web - Home"/>
+    <script>document.write(`<img src="_static/vina.jpg" class="logo__image only-dark" alt="Pencarian dan Penambangan Web - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introdution
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pengantar.html">Pengantar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas_1_crawling_data.html">Crawling Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Crawling.html">CRAWLING PTA</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Pre_processing.html"><strong>Pre-Processing Text</strong></a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="TF_IDF_%26_Word_Embedding.html">TF-IDF &amp; WORD EMBEDDING, KLASIFIKASI SVM &amp; NAIVE BAYES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Latent%20dirichlet%20allocation.html">LDA ==&gt; Latent Dirichlet Allocation</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="pre_processing_%26_word_embedding.html">Pre-processing &amp; word embedding</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="UTS.html">1.	Lakukan analisa klasifikasikan berita dengan extraksi fitur model topik modelling dengan classifier naïve bayes dan SVM</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="prepro_datasetNasa.html">Filtering Dataset web use</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Processing.html">Pemrosesan data.csv</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="clustering_kmeans.html">Clustering menggunakan K-means</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_facebook.html">Analisis Komunitas</a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ekstraksi PDF ke Teks</a></li>
+
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fdata_paper.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/data_paper.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Ekstraksi PDF ke Teks</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ekstraksi PDF ke Teks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-ke-csv">save ke csv</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-dan-membangun-matrix">Preprocessing dan Membangun Matrix</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#word-graph">Word Graph</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank">PageRank</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pymupdf
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pymupdf
+  Downloading pymupdf-1.26.6-cp310-abi3-manylinux_2_28_x86_64.whl.metadata (3.4 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading pymupdf-1.26.6-cp310-abi3-manylinux_2_28_x86_64.whl (24.1 MB)
+?25l   <span class=" -Color -Color-C237">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">0.0/24.1 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.9/24.1 MB</span> <span class=" -Color -Color-Red">133.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.9/24.1 MB</span> <span class=" -Color -Color-Red">133.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">23.9/24.1 MB</span> <span class=" -Color -Color-Red">133.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   <span class=" -Color -Color-Red">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span> <span class=" -Color -Color-Green">24.1/24.1 MB</span> <span class=" -Color -Color-Red">39.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pymupdf
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed pymupdf-1.26.6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> A new release of pip is available: <span class=" -Color -Color-Red">25.1.1</span> -&gt; <span class=" -Color -Color-Green">25.3</span>
+<span class=" -Color -Color-Bold">[</span><span class=" -Color -Color-Blue">notice</span><span class=" -Color -Color-Bold">]</span> To update, run: <span class=" -Color -Color-Green">python3 -m pip install --upgrade pip</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="ekstraksi-pdf-ke-teks">
+<h1>Ekstraksi PDF ke Teks<a class="headerlink" href="#ekstraksi-pdf-ke-teks" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pymupdf</span>
+
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;contoh.pdf&quot;</span><span class="p">)</span> <span class="c1"># open a document</span>
+<span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="c1"># create a text output</span>
+<span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span> <span class="c1"># iterate the document pages</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="c1"># get plain text (is in UTF-8)</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> <span class="c1"># write text of page</span>
+    <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">bytes</span><span class="p">((</span><span class="mi">12</span><span class="p">,)))</span> <span class="c1"># write page delimiter (form feed 0x0C)</span>
+<span class="n">out</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">/tmp/ipykernel_14740/655380305.py</span> in <span class="ni">?</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pymupdf</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pymupdf</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;contoh.pdf&quot;</span><span class="p">)</span> <span class="c1"># open a document</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">out</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="c1"># create a text output</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span> <span class="c1"># iterate the document pages</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">text</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span> <span class="c1"># get plain text (is in UTF-8)</span>
+
+<span class="nn">/usr/local/python/3.12.1/lib/python3.12/site-packages/pymupdf/__init__.py</span> in <span class="ni">?</span><span class="nt">(self, filename, stream, filetype, rect, width, height, fontsize)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3061</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">page_count2</span> <span class="o">=</span> <span class="n">extra</span><span class="o">.</span><span class="n">page_count_pdf</span>
+<span class="g g-Whitespace">   </span><span class="mi">3062</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3063</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">page_count2</span> <span class="o">=</span> <span class="n">extra</span><span class="o">.</span><span class="n">page_count_fz</span>
+<span class="g g-Whitespace">   </span><span class="mi">3064</span>         <span class="k">finally</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3065</span>             <span class="n">JM_mupdf_show_errors</span> <span class="o">=</span> <span class="n">JM_mupdf_show_errors_old</span>
+
+<span class="ne">FileNotFoundError</span>: no such file: &#39;contoh.pdf&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>nltk
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: nltk in /usr/local/lib/python3.12/dist-packages (3.9.1)
+Requirement already satisfied: click in /usr/local/lib/python3.12/dist-packages (from nltk) (8.3.1)
+Requirement already satisfied: joblib in /usr/local/lib/python3.12/dist-packages (from nltk) (1.5.2)
+Requirement already satisfied: regex&gt;=2021.8.3 in /usr/local/lib/python3.12/dist-packages (from nltk) (2025.11.3)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.12/dist-packages (from nltk) (4.67.1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">teks</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">teks</span><span class="p">[:</span><span class="mi">200</span><span class="p">])</span>  <span class="c1"># tampilkan 200 karakter pertama</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+Jurnal Manajemen Informatika (JAMIKA) 
+Volume 13 Nomor 1 Edisi April 2023 
+E ISSN: 2655-6960 | P ISSN: 2088-4125 
+OJS: https://ojs.unikom.ac.id/index.php/jamika 
+ 
+ 
+doi : 10.34010/jamika.v13i1.9424
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#text = &quot;Ini adalah kalimat pertama. Ini kalimat kedua? Ya!&quot;</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">teks</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+<span class="c1"># Output: [&#39;Ini adalah kalimat pertama.&#39;, &#39;Ini kalimat kedua?&#39;, &#39;Ya!&#39;]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39; \nJurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n84\nPembobotan TF-IDF Menggunakan Naïve Bayes Pada Sentimen Masyarakat \nMengenai Isu Kenaikan BIPIH \n \nTF-IDF Weighting Using Naïve Bayes on Public Sentiment on The \nIssue of Rising BIPIH \n \nRisa Wati1*, Siti Ernawati2, Hilda Rachmi3 \n1,3Program Studi Sistem Informasi, Universitas Bina Sarana Informatika, Jakarta, Indonesia \n2Program Studi Sistem Informasi, Universitas Nusa Mandiri, Jakarta, Indonesia  \n*E-mail: risawati.rwx@bsi.ac.id \n \n \nAbstrak \nKementerian agama mengusulkan untuk menaikkan Biaya Perjalanan Ibadah Haji (Bipih) tahun 1444 H/2023 M menjadi \nRp.69,19 juta.&#39;, &#39;Terdapat kenaikan biaya yang cukup tinggi dibandingkan tahun 2022.&#39;, &#39;Hal ini menimbulkan sentimen pada \nmasyarakat, terdapat opini masyarakat yang pro dan kontra terhadap isu kenaikan Bipih di media sosial twitter.&#39;, &#39;Tujuan \ndari penelitian ini adalah untuk menganalisa sentimen terhadap isu kenaikan Biaya Perjalanan Ibadah Haji dan untuk \nmembuktikan apakah Naive Bayes merupakan pengklasifikasi text yang baik pada sentimen isu kenaikan Bipih.&#39;, &#39;Naive Baye \nmerupakan salah satu algoritma pengklasifikasi teks yang baik.&#39;, &#39;Data diambil dari media sosial twitter.&#39;, &#39;Data \ndikelompokkan menjadi opini pro dan opini kontra kemudian diolah menggunakan bahasa pemrograman python dan \njupyter sebagai teks editor.&#39;, &#39;Data yang digunakan sebanyak 850 data.&#39;, &#39;Data dibagi menjadi data training dan data testing \ndengan perbandingan 80:20.&#39;, &#39;Dengan jumlah data training sebesar 679 data dan jumlah data testing 170 data.&#39;, &#39;Selanjutnya \nmengimplementasikan algoritma Multinominal Naive Bayes (MNB) sebagai pengklasifikasi teks serta dilakukan \npembobotan kata menggunakan TF-IDF.&#39;, &#39;Hasil uji coba diperoleh nilai akurasi sebesar 89% dan nilai ROC sebesar 0,91.&#39;, &#39;Terbukti bahwa algoritma Multinominal Naive Bayes (MNB) merupakan pengklasifikasi teks yang baik untuk sentiment \nanalisis opini isu kenaikan Biaya Perjalanan Ibadah Haji karena masuk kedalam Excellent Classification.&#39;, &#39;Kata kunci: BIPIH; Naïve Bayes; Analisis Sentimen; TF-IDF; Twitter.&#39;, &#39;Abstract \nThe Ministry of Religious Affairs proposes to increase the cost of Hajj Travel (Bipih) in 1444 H/2023 M to Rp.69.19 million.&#39;, &#39;There is a fairly high increase in costs compared to 2022.&#39;, &#39;This raises sentiment in the community, there are public opinions \nfor and against the issue of rising Bipih on social media twitter.&#39;, &#39;The purpose of this study was to analyze the sentiment on \nthe issue of increasing the cost of Hajj Travel and to prove whether Naive Bayes is a good classifier of text on the issue of \nincremental sentiment.&#39;, &#39;Naive Baye is one of the best text classifier algorithms.&#39;, &#39;Data taken from social media twitter.&#39;, &#39;The \nData are grouped into pro and Contra opinions and then processed using python programming language and jupyter as \ntext editor.&#39;, &#39;Data used as much as 850 data.&#39;, &#39;The Data is divided into training data and testing data with a ratio of 80:20.&#39;, &#39;With the number of training data of 679 data and the number of testing data of 170 data.&#39;, &#39;Then implement Multinominal \nNaive Bayes algorithm (MNB) as text classifier and word weighting using TF-IDF.&#39;, &#39;The test results obtained accuracy value \nof 89% and ROC value of 0.91.&#39;, &#39;It is proven that Multinominal Naive Bayes algorithm (MNB) is a good classifier of text for \nsentiment analysis of opinion on the issue of increasing the cost of Hajj travel because it is included in the Excellent \nClassification.&#39;, &#39;Keywords: BIPIH; Naïve Bayes; Sentiment Analysis; TF-IDF; Twitter.&#39;, &#39;Naskah diterima 9 Mar.&#39;, &#39;2023; direvisi 9 Apr.&#39;, &#39;2023; dipublikasikan 12 Apr.&#39;, &#39;2023.&#39;, &#39;JAMIKA is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.&#39;, &#39;I. PENDAHULUAN \nKementerian Agama mengusulkan Biaya Perjalanan Ibadah Haji (Bipih) tahun 1444 H/2023 M yang \nharus dibayar calon jamaah yang akan berangkat, yang awalnya hanya sebesar Rp.&#39;, &#39;39,89 juta menjadi Rp.&#39;, &#39;69,19 juta.&#39;, &#39;Terdapat kenaikan biaya yang cukup tinggi dibandingkan tahun 2022.&#39;, &#39;Usulan kenaikan biaya haji \ndipicu oleh Arab Saudi yang menetapkan adanya kenaikan Biaya Masyair dengan jumlah yang sangat \nsignifikan.&#39;, &#39;Pemerintah mengusulkan komposisi antara Bipih dan penggunaan Nilai Manfaat adalah 70%:30% \nkarena nilai manfaat dana Jemaah haji bukan hanya untuk Jemaah haji yang akan berangkat saja tetapi untuk \nJemaah haji yang belum diberangkatkan.&#39;, &#39;Isu mengenai kenaikan biaya haji menjadi polemik dan perbincangan \n\x0c \nJurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n85\npublik yang menimbulkan pro kontra diberbagai media salah satunya adalah media sosial  [1], [2].&#39;, &#39;Salah satu \nmedia sosial yang banyak digunakan adalah Twitter karena twitter dapat digunakan untuk mengungkapkan \nopini maupun memberikan saran dan kritik pada kebijakan pemerintah [3].&#39;, &#39;Media sosial twitter memungkinkan \npengguna untuk berkomunikasi dengan seluruh dunia [4].&#39;, &#39;Tweets yang berisi opini maupun komentar, \nmerupakan resource yang dapat digunakan untuk menganalisis sentimen  terhadap suatu instansi maupun \nperorangan [5].&#39;, &#39;Analisis sentimen dikenal sebagai Opinion Mining atau emosi Artificial  Intelligence dan \npemanfaatan NLP, Text Mining, linguistik komputasi dan pengukuran bio untuk mengenali, mengevaluasi dan \nmemeriksa keadaan emosional dan informasi subjektif  [6].&#39;, &#39;Tujuan dari penelitian ini adalah untuk menganalisa sentimen terhadap isu kenaikan Biaya Perjalanan \nIbadah Haji dan untuk membuktikan apakah Naive Bayes merupakan pengklasifikasi text yang baik pada \nsentimen isu kenaikan Biaya Perjalanan Ibadah Haji.&#39;, &#39;Algoritma Naïve Bayes dipilih karena salah satu metode \npengklasifikasi teks yang telah banyak digunakan serta mudah dan cepat dalam penerapannya[7].&#39;, &#39;Pengklasifikasi Naïve Bayes digunakan untuk klasifikasi tujuan, Naïve Bayes juga mengklasifikasikan ulasan \nberdasarkan probability[8].&#39;, &#39;Beberapa penelitian pengklasifikasi text menggunakan algoritma Naive Bayes seperti penelitian \ndengan judul Perbandingan Metode Naïve Bayes dan Support Vector Machine pada Analisis Sentimen Twitter \nterbukti bahwa metode Naive Bayes memiliki hasil akurasi, presisi, recall dan F1-Score yang lebih baik \ndibandingkan metode Support Vector Machine [5].&#39;, &#39;Naïve bayes memiliki kinerja yang baik dalam \nmemprediksi sentimen tetang kebijakan pemerintah dalam penerapan new normal [9].&#39;, &#39;Pada penelitian sentimen \nanalisis menggunakan algoritma Naive Bayes data crawler twitter dilakukan percobaan dengan \nmembandingkan tiga metode pengklasifikasi, yaitu metode Naive Bayes, SVM dan KNN, metode Naive Bayes \nmemiliki tingkat akurasi yang lebih baik dibandingkan menggunakan metode lain, yaitu memperoleh nilai \nakurasi sebesar 80.90% [12].&#39;, &#39;Pada penelitian ini menggunakan model dengan fitur pembobotan TF-IDF yang diterapkan dengan \nalgoritma Naïve Bayes terhadap review berbahasa Indonesia mengenai polemik masyarakat terhadap isu \nkenaikan Biaya Perjalanan Ibadah Haji.&#39;, &#39;Penelitian ini juga memanfaatkan library sastrawi untuk pemrosesan \nteks dalam bahasa Indonesia.&#39;, &#39;Evaluasi yang akan dilakukan terhadap hasil eksperimen yang dilakukan pada \npenelitian ini menggunakan confusion marix dan nilai AUC yang ada pada kurva ROC yang dihasilkan.&#39;, &#39;II.&#39;, &#39;METODE PENELITIAN \nDalam penelitian ini terdapat beberapa tahapan penelitian yang digambarkan pada gambar 1.&#39;, &#39;Tahapan \npenelitian dimulai dari identifikasi masalah dan objek penelitian, pengumpulan data, dataset, preprocessing, \npembagian data training dan data testing, pembobotan kata menggunakan TF-IDF, implementasi Naïve Bayes, \ndan evaluasi.&#39;, &#39;Gambar 1.&#39;, &#39;Tahapan Penelitian \n \nIdentifikasi Masalah dan Objek Penelitian \nKementerian Agama mengusulkan untuk menaikan Biaya Perjalanan Ibadah Haji tahun 2023 menjadi \nRp.&#39;, &#39;69,19 Juta, hal ini menimbulkan pro dan kontra pada masyarakat.&#39;, &#39;Permasalahan dalam penelitian ini adalah \nuntuk menganalisa sentimen masyarakat terhadap pro kontra isu kenaikan Biaya Perjalanan Ibadah Haji.&#39;, &#39;Objek \ndalam penelitian ini adalah opini masyarakat mengenai isu kenaikan Biaya Perjalanan Ibadah Haji pada media \nsosial twitter.&#39;, &#39;Identifikasi Masalah \ndan Objek \nPenelitian\nPengumpulan Data\nDataset\nPreprocessing\nPembagian Data \nTraining dan Data \nTesting\nPembobotan Kata \nMenggunakan\nTF-IDF\nImplementasi Naive \nBayes\nEvaluasi\n\x0c \nJurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n86\nPengumpulan Data \nData yang digunakan dalam penelitian ini merupakan opini masyarakat mengenai isu kenaikan biaya \nperjalanan ibadah haji pada media sosial twitter yang diperoleh dari link https://netlytic.org/index.php dengan \nkata kunci “dana haji” dan “dana haji naik” kemudian file disimpan dalam format .CSV (Comma-Separated \nValues).&#39;, &#39;Data dikumpulkan selama kurang lebih satu bulan mulai dari 06 Januari 2023 sampai dengan 01 \nFebruari 2023.&#39;, &#39;Gambar 2. menunjukan salah satu contoh review yang diberikan masyarakat terhadap isu \nkenaikan biaya haji pada twitter.&#39;, &#39;Gambar 2.&#39;, &#39;Sample Review Masyarakat terhadap isu kenaikan biaya Haji Pada Twitter \n \nDataset \nDalam penelitian ini data yang digunakan adalah sebanyak 850 data.&#39;, &#39;Data diambil secara acak pada \nmedia sosial twitter kemudian data diklasifikasikan secara manual ke dalam dua kriteria, yaitu opini masyarakat \nyang pro terhadap isu kenaikan biaya perjalanan ibadah haji dan opini masyarakat yang kontra terhadap isu \nkenaikan biaya perjalanan ibadah haji.&#39;, &#39;Berdasarkan data yang diambil secara acak diperoleh opini pro \nberjumlah 189 data dan opini kontra berjumlah 661 data.&#39;, &#39;Selanjutnya data diolah menggunakan bahasa \npemrograman python dan jupyter sebagai text editor.&#39;, &#39;Python merupakan salah satu bahasa pemrograman yang \nbanyak digunakan, hal ini membuat python menjadi bahasa pemrograman yang mulai banyak dipelajari[11].&#39;, &#39;Jupyter merupakan perangkat lunak yang bersifat open source untuk mendukung ilmu data science dan \nscientific computing [12].&#39;, &#39;Preprocessing \nDalam bidang text mining maupun data mining tahapan preprocessing sangat berperan penting.&#39;, &#39;Tahapan \npreprocessing ini dilakukan untuk melakukan proses seleksi data pada setiap dokumen yang akan diolah.&#39;, &#39;Hasil \npreprocessing sangat menentukan hasil data yang diolah dan dapat mempengaruhi keakuratan klasifikasi \ndokumen[13], [14].&#39;, &#39;Dalam tahapan ini menggunakan library sastrawi.&#39;, &#39;Library ini berisi kumpulan algoritma \ndan aturan untuk melakukan pemrosesan teks dalam bahasa Indonesia [15]Library sastrawi ditulis dalam \nbahasa pemrograman PHP dan dapat digunakan untuk melakukan stemming atau pengembalian kata dasar, \nstopword removal atau penghapusan kata-kata umum yang tidak memiliki makna khusus, tokenisasi atau \n\x0c \nJurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n87\npemisahan teks menjadi kata-kata.&#39;, &#39;Dalam implementasinya, menginstall library sastrawi pada python dapat \nmenggunakan pip (package installer for python) dengan mengetikan kode pip install Sastrawi.&#39;, &#39;Berikut proses \npreprocesing yang dilakukan: \n1) \nCleaning Text \nDalam proses Cleaning Text, berisi beberapa tahapan diantaranya adalah tahap Case Folding adalah \nproses mengubah dataset menjadi huruf kecil [13].&#39;, &#39;Contoh dari Case Folding, yaitu “DANA” menjadi \n“dana”, “HAJI” menjadi “haji”, “MODUS” menjadi “modus” dan lain-lain.&#39;, &#39;Menghapus tanda baca \n(remove punct) seperti koma, titik, tanda tanya, tanda seru dan tanda baca yang lainnya.&#39;, &#39;Menghapus \nhashtag, situs website, angka, karakter kosong (remove whitespace).&#39;, &#39;2) \nTokenization \nTokenization adalah proses pemecahan teks pada kalimat menjadi potongan kata [5].&#39;, &#39;Proses \nTokenization selain memisahkan teks, juga dapat menafsirkan dan mengelompokan token yang \nterisolasi untuk membuat token dengan tingkat yang lebih tinggi [15].&#39;, &#39;3) \nStopword Removal \nStopword Removal adalah proses untuk menghapus kata yang tidak memiliki makna seperti pada, dan, \nhingga, yang dan lain-lain [13].&#39;, &#39;Stopword dapat diartikan juga untuk menghilangkan kata yg kurang \nefektif [17].&#39;, &#39;Pada proses Stopword Removal dilakukan penghapusan kata yang tidak relevan dengan \nkamus bahasa indonesia, seperti seperti wiiih, emmm, kalo, ngga, oleh, masy , yaaa, pdhal, sngj, \nmalapraktik, bgmn, bhkn, wakk, adlh, dan lain-lain.&#39;, &#39;4) \nStemming \nStemming adalah proses mengubah kata berimbuhan menjadi kata dasar [13].&#39;, &#39;Stemming menyaring \nkata yang terdapat kata sambung, kata ganti, kata depan menjadi kata dasar, yaitu dengan \nmenghilanmgkan awalan dan akhiran kata [17].&#39;, &#39;Dalam penelitian ini dilakukan proses preprocessing data, yaitu cleaning text, tokenization, stopword \ndan stemming.&#39;, &#39;Tabel 1 menunjukan hasil preprocessing data yang telah dilakukan.&#39;, &#39;Diambil beberapa sample \nopini masyarakat yang pro dan opini masyarakat yang kontra terhadap kenaikan biaya perjalanan ibadah haji.&#39;, &#39;Terlihat bahwa hasil dari preprocessing berjalan sesuai dengan fungsi dari masing-masing tahapan.&#39;, &#39;TABEL 1  \nHASIL PREPROCESSING DATA \nReview \nCleaning Text \ntokenization \nStopword \nStemming \nTapi kalo ngembat dana \nHaji dosa kan pak \n?&#39;, &#39;?&#39;, &quot;?https://t.co/KBMx0e\nyHRK \ntapi kalo ngembat \ndana haji dosa \n[&#39;tapi&#39;, &#39;kalo&#39;, \n&#39;ngembat&#39;, &#39;dana&#39;, \n&#39;haji&#39;, &#39;dosa&#39;] \nngembat dana \nhaji dosa \nkalo ngembat dana \nhaji dosa \n@Tan_Mar3M Yg \nbenalu tuh ,yg bawa \nkabur uang \nnegara,koruptor ,naikan \ndana haji ,bemsin \nlistrik, para buzzer yg di \ngaji oleh negara,..salafy \nwahabi salah nya apa .. \nbenalu bawa kabur \nuang negara \nkoruptor naikan \ndana haji bemsin \nlistrik para buzzer \ngaji oleh negara \nsalafy wahabi salah \n[&#39;benalu&#39;, &#39;bawa&#39;, \n&#39;kabur&#39;, &#39;uang&#39;, \n&#39;negara&#39;, &#39;koruptor&#39;, \n&#39;naikan&#39;, &#39;dana&#39;, &#39;haji&#39;, \n&#39;bemsin&#39;, &#39;listrik&#39;, \n&#39;para&#39;, &#39;buzzer&#39;, &#39;gaji&#39;, \n&#39;oleh&#39;, &#39;negara&#39;, \n&#39;salafy&#39;, &#39;wahabi&#39;, \n&#39;salah&#39;] \nbenalu bawa \nkabur uang \nnegara koruptor \nnaik dana haji \nlistrik buzer gaji \nnegara salafy \nwahabi salah \nbenalu bawa kabur \nuang negara koruptor \nnaik dana haji bemsin \nlistrik buzzer gaji \nnegara salafy wahabi \nsalah \n@OposisiCerdas \n@msaid_didu Usut \npenyelewengan dana \nhaji  !&quot;, &quot;usut penyelewengan \ndana haji \n[&#39;usut&#39;, \n&#39;penyelewengan&#39;, \n&#39;dana&#39;, &#39;haji&#39;] \n \nusut seleweng \ndana haji \nusut seleweng dana \nhaji \n@democrazymedia \nYang boleh mengelola \ndana haji hanya  yang \nsanggup dan amanah \nyang boleh \nmengelola dana haji \nhanya yang sanggup \namanah \n[&#39;yang&#39;, &#39;boleh&#39;, \n&#39;mengelola&#39;, &#39;dana&#39;, \n&#39;haji&#39;, &#39;hanya&#39;, &#39;yang&#39;, \n&#39;sanggup&#39;, &#39;amanah&#39;] \nkelola dana haji \nsangup amanah \nkelola dana haji \nsanggup amanah \n@Hoshrii BPKH sudah \nbenar dalam \npengelolaan dana haji.. \n \nMantab \nbpkh sudah benar \ndalam pengelolaan \ndana haji mantab \n[&#39;bpkh&#39;, &#39;sudah&#39;, \n&#39;benar&#39;, &#39;dalam&#39;, \n&#39;pengelolaan&#39;, &#39;dana&#39;, \n&#39;haji&#39;, &#39;mantab&#39;] \n \nbpkh kelola \ndana haji \nmantab \nbpkh kelola dana haji \nmantab \n\x0c \nJurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n88\nReview \nCleaning Text \ntokenization \nStopword \nStemming \nBPKH Mendukung \nAdanya Dana Haji yang \nBerkeadilan dan \nBerkelanjutan \nhttps://t.co/wr1sKmEgX\np \nbpkh mendukung \nadanya dana haji \nyang berkeadilan \nberkelanjutan \n[&#39;bpkh&#39;, &#39;mendukung&#39;, \n&#39;adanya&#39;, &#39;dana&#39;, &#39;haji&#39;, \n&#39;yang&#39;, &#39;berkeadilan&#39;, \n&#39;berkelanjutan&#39;] \nbpkh dukung \ndana haji adil \nlanjut \nbpkh dukung dana \nhaji adil lanjut \n \na. \nPembagian Data Training dan Data Testing \n \nSetelah dilakukan preprocessing data langkah selanjutnya, yaitu membagi data menjadi data traning (data \nlatih) dan data testing (data uji).&quot;, &#39;jumlah data training sebesar 679 data dan data testing sebesar 170 data.&#39;, &#39;Data training digunakan untuk melatih algoritma untuk mencari model yang sesuai dan data testing \ndigunakan untuk menguji model yang didapat setelah tahapan testing.&#39;, &#39;Proses pembagian data dalam python dapat mengimport library Sklearn dan sublibrary train_test_spilt.&#39;, &#39;Sublibrary ini berasal dari modul model_selection.&#39;, &quot;from sklearn.model_selection import train_test_split \n \ntrain_X, \ntest_X, \ntrain_Y, \ntest_Y \n= \nmodel_selection.train_test_split(df_finish[&#39;stopword&#39;], \ndf_finish[&#39;Label&#39;], test_size = 0.2, random_state = 42) \n \n \nProses definisi dilakukan, yaitu train_X sebagai data X yang akan dilatih dan test_X sebagai dataX yang \nadakan dites.&quot;, &#39;Variabel train_Y dependen yang akan dilatih dan test_Y merupakan variabel dependen yang \nakan diuji.&#39;, &#39;Dalam penelitian ini dilakukan pembagian data training (data latih) sebesar 80% dan data uji \n(data testing) sebesar 20%.&#39;, &#39;Selain pembagian data, parameter lain, yaitu random_state.&#39;, &#39;Parameter ini \nmerupakan parameter RNG (random number generator) yang diisi dengan nilai 42. \n \nb. \nPembobotan Kata Menggunakan Term Frequency-Inverse Document Frequency (TF-IDF) \nProses selanjutnya, dilakukan pembobotan kata menggunakan Term Frequency-Inverse Document \nFrequency (TF-IDF), pembobotan kata berfungsi untuk mengubah data berupa teks menjadi numerik.&#39;, &#39;Bidang pembelajaran mesin atau Machine learning dan deep learning akan bekerja dengan baik dan \nmaksimal jika data yang diolah berupa data numerik.&#39;, &#39;Maka setiap penelitian apda bidang ini khususnya \nanalisis sentimen harus mengubah data berupa kumpulan kata-kata atau kalimat menjadi numerik.&#39;, &#39;Proses \ntersebut bisasnya disebut dengan proses pembobotan kata.&#39;, &#39;Proses ini memiliki banyak metode yang dapat \ndigunakan, diantaranya BoF (Bag of Words, N-gram, Word2Vec dan TF-IDF [16].&#39;, &#39;TF-IDF merupakan \nsalah satu teknik yang digunakan dalam pengolahan teks untuk memberikan bobot pada kata-kata dalam \nsebuah dokumen.&#39;, &#39;Tujuan dari TF-IDF adalah untuk mengidentifikasi kata-kata yang paling penting dalam \nsuatu dokumen atau kumpulan dokumen.&#39;, &#39;Term Frequency (TF) adalah nilai frekuensi kemunculan suatu \nkata dalam sebuah dokumen.&#39;, &#39;Nilai TF dapat dihitung dengan menggunakan rumus: \n \nTF =\n(jumlah kemunculan kata dalam dokumen) \n(jumlah kata dalam dokumen)\n  \n \n \n \n \n \n(1) \n \nNamun, nilai TF ini tidak memberikan informasi tentang pentingnya kata tersebut dalam dokumen.&#39;, &#39;Kata-\nkata yang sering muncul dalam sebuah dokumen seperti kata hubung atau kata umum mungkin memiliki \nnilai TF yang tinggi, tetapi sebenarnya tidak memiliki makna yang penting dalam dokumen tersebut.&#39;, &#39;Oleh \nkarena itu, dibutuhkan teknik lain, yaitu Inverse Document Frequency (IDF) yang memberikan bobot \npada kata-kata yang muncul jarang di seluruh dokumen.&#39;, &#39;Nilai IDF dapat dihitung dengan menggunakan \nrumus: \n \nIDF = 𝑙𝑜𝑔\n𝑁\n𝑛 \n \n \n \n \n \n \n \n \n(2) \nDimana N adalah jumlah dokumen dalam kumpulan dokumen dan n adalah jumlah dokumen yang \nmengandung kata tersebut.&#39;, &#39;Setelah nilai TF dan IDF diperoleh, nilai TF-IDF dapat dihitung dengan \nmengalikan nilai TF dengan nilai IDF.&#39;, &#39;Kata-kata yang memiliki nilai TF-IDF yang tinggi dianggap \npenting dan memberikan kontribusi yang lebih besar dalam menentukan topik dokumen atau kumpulan \ndokumen tersebut.&#39;, &#39;Gambar 3 adalah hasil pembobotan kata menggunakan TF-IDF pada python.&#39;, &#39;Jurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n89\n \n \n \n \nGambar 3.&#39;, &#39;Hasil Pembobotan Kata Menggunakan TF-IDF \n \nBerdarkan gambar 3 dapat disimpulkan bahwa kode 1 menunjukan nomor baris dari setiap data yang \ndiolah.&#39;, &#39;2 merupakan nomor integer unik setiap kata yang ada pada baris.&#39;, &#39;3 merupakan hasil pembobotan \n(skor) yang dihitung menggunakan TF-IDF.&#39;, &#39;Setelah dilakukan analisa terhadap proses preprocessing dan \npembobotan TF-IDF maka dapat dilihat kata-kata yang sering muncul atau top word yang disajikan dalam \nbentuk diagram plot dan dapat dilihat pada gambar 4.&#39;, &#39;Gambar 4.&#39;, &#39;Diagram Plot Menunjukan Kata-Kata Yang Sering Muncul Atau Top Word \n \nc. \nImplementasi Naive Bayes \n \nNaive Bayes merupakan algoritma klasifikasi yang didasarkan oleh teorema Bayes [5].&#39;, &#39;Naïve Bayes juga \nmerupakan salah satu metode machine learning yang memanfaatkan perhitungan probabilitas dan \nstatistika [19]Pada penelitian yang dilakukan menggunakan algoritma multinominal naïve bayes (MNB).&#39;, &#39;Algoritma ini mengimplementasikan algoritma naïve bayes untuk data yang didistribusikan secara \nmultinasional dan merupakan salah satu dari dua varian naive bayes klasik yang digunakan dalam \nklasifikasi teks [20].&#39;, &#39;MNB cocok untuk mengklasifikasikan teks yang memiliki banyak fitur (misalnya \n2 \n3 \n1 \n\x0c \nJurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n90\nkata-kata dalam dokumen) dengan menggunakan metode probabilitas.&#39;, &#39;Algoritma ini bekerja dengan \nmenghitung probabilitas kemunculan setiap kata di setiap kelas dan kemudian menggunakan probabilitas \nini untuk memprediksi kelas baru dari suatu teks.&#39;, &#39;Implementasi Multinominal Naïve Bayes biasayanya \ndigunakan pada klasifikasi email sebagai spam atau bukan spam, klasifikasi dokumen sebagai topik \ntertentu, atau klasifikasi sentimen pada teks (positif, negatif, atau netral).&#39;, &#39;Kode yang digunakan saat \nproses eksperimen dengan mengimport kelas MultinomialNB dari modul naïve bayes pada library scikit-\nlearn.&#39;, &#39;Dengan menggunakan MultinomialNB dapat melakukan pelatihan dan prediksi dengan mudah pada \ndata teks.&#39;, &#39;Rumus Multinomial Naive Bayes digunakan untuk menghitung probabilitas dokumen terhadap setiap \nkategori yang ada.&#39;, &#39;Probabilitas ini digunakan untuk memprediksi kategori mana yang paling mungkin \nuntuk dokumen tersebut.&#39;, &#39;Rumus dasar Multinomial Naive Bayes adalah sebagai berikut: \nP(\n𝑐\n𝑑) = P(𝑐) ∗P(\n𝑑\n𝑐)/P(𝑑) \n \n \n \n \n \n \n \n(3) \n \nKeterangan: \nP = (\n𝑐\n𝑑) adalah probabilitas dokumen d masuk ke dalam kategori c. \nP = (c) adalah probabilitas prior untuk kategori c. \nP = (\n𝑑\n𝑐) adalah probabilitas kemunculan fitur (kata atau istilah) dalam dokumen d, jika dokumen d masuk \ndalam kategori c. \nP = (𝑑) adalah probabilitas dari dokumen d. \n \nUntuk menghitung probabilitas P(d|c), digunakan rumus sebagai berikut: \nP((𝑑|𝑐)) = ∏(𝑃(𝑡|𝑐)^𝑛𝑡) \n \n \n \n \n \n \n \n(4) \n \nKeterangan: \n𝑃= (\n𝑡\n𝑐) adalah probabilitas kemunculan fitur t (kata atau istilah) dalam kategori c. \n𝑛𝑡 adalah jumlah kemunculan fitur t dalam dokumen d. \n \nUntuk menghitung probabilitas P(c) dan P(d), digunakan rumus sebagai berikut: \n𝑃(𝑐) =\n𝑁𝑐\n𝑁  \n \n \n \n \n \n \n \n \n(5) \n \nKeterangan: \nNc adalah jumlah dokumen dalam kategori c. \nN adalah jumlah total dokumen.&#39;, &#39;𝑃(𝑑)dapat dihitung dengan cara yang sama seperti menghitung 𝑃(𝑑|𝑐), dengan asumsi bahwa dokumen \ntersebut termasuk dalam semua kategori yang ada.&#39;, &#39;Setelah semua probabilitas diperoleh, dokumen dapat \ndiklasifikasikan ke dalam kategori dengan probabilitas tertinggi.&#39;, &#39;Kategori dengan probabilitas tertinggi \ndianggap sebagai kategori dokumen yang paling mungkin.&#39;, &#39;d. \nEvaluasi \nLangkah terakhir dalam penelitian ini, yaitu evaluasi, apakah algoritma Naive Bayes merupakan \npengklasifikasi teks yang baik sehingga dapat memperoleh nilai akurasi yang tinggi pada analisis \nsentimen masyarakat terhadap isu kenaikan Biaya Perjalanan Ibadah Haji.&#39;, &#39;Proses evaluasi dilakukan \nmenggunakan confusion matrix dengan melihat nilai akurasi dan ROC dari hasil eksperimen yang \ndilakukan.&#39;, &#39;III.&#39;, &#39;HASIL DAN PEMBAHASAN \nPada penelitian ini dilakukan pengujian sentimen analisis terhadap opini masyarakat terkait isu kenaikan \nBiaya Perjalanan Ibadah Haji (Bipih).&#39;, &#39;Data akan diolah menggunakan Bahasa pemrograman Python dan \njupyter sebagai teks editor.&#39;, &#39;Data diperoleh dari media social twitter dengan jumlah 850 data.&#39;, &#39;Data \ndikelompokkan secara manual kedalam opini pro dan opini kontra.&#39;, &#39;Selanjutnya dilakukan preprocessing data, \nyaitu proses Cleaning Text, Tokenization, Stopword Removal dan Stemming untuk menghilangkan noise pada \ndata.&#39;, &#39;Data dibagi menjadi 2, yaitu data training dan data testing dengan perbandingan data 80:20.&#39;, &#39;Data training \n\x0c \nJurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n91\nberjumlah 679 data dan data testing berjumlah 170 data.&#39;, &#39;Selanjutnya, dilakukan pembobotan kata \nmenggunakan TF-IDF.&#39;, &#39;Tahapan selanjutnya, yaitu penerapan algoritma Naive Bayes terhadap data yang telah selesai melalui \nproses preprocesing dan pembobotan.&#39;, &#39;Proses evaluasi dalam penelitian ini menggunakan Confusion Matrix \nyang berfungsi untuk memvisualisasikan hasil kinerja dari suatu algoritma.&#39;, &#39;Dari hasil uji coba diperoleh nilai \nakurasi sebesar 0.89 dengan nilai True Negatif (data negatif yang diprediksi benar) sebesar 74.12% dengan \njumlah data 126 data, False Positif (data negatif namun diprediksi sebagai data positif) sebesar 0.59% dengan \njumlah data 1 data, False Negatif (data positif namun diprediksi sebagai data negatif) sebesar 10.59% dengan \njumlah data 18 data dan True Positif (data positif yang diprediksi benar) sebesar 14.71% dengan jumlah data \n25 data.&#39;, &#39;Dapat dilihat pada gambar 5.&#39;, &#39;Gambar 5.&#39;, &#39;Confusion Matrix \n \nBerdasarkan confusion matriks yang dihasilkan maka dapat dilihat hasil dari nilai akurasi yang \ndidapatkan.&#39;, &#39;Hasil akurasi yang didapatkan, yaitu 0.89, diperoleh hasil akurasi yang tinggi karena False Positif \ndan False Negatif memiliki nilai yang lebih kecil dari nilai True Negatif dan True Positif.&#39;, &#39;Hasil akurasi dapat \ndijabarkan dalam bentuk perhitungan menggunakan persamaan di bawah ini.&#39;, &#39;𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦=\n𝑇𝑃+𝑇𝑁\n𝑇𝑃+𝑇𝑁+𝐹𝑃+𝐹𝑁𝑥 100%  \n \n \n \n \n \n \n(6) \n \n𝐴𝑐𝑐𝑢𝑟𝑎𝑐𝑦=\n14.71 + 74.12\n14.71 + 74.12 + 0.59 + 10.59 𝑥 100% = 88.83\n100 = 0.89 \n \n \nGrafik Receiver Operating Characteristic (ROC) banyak digunakan untuk menilai hasil prediksi.&#39;, &#39;ROC \nakan menunjukkan hasil prediksi dari algoritma pengklasifikasi yang digunakan.&#39;, &#39;Kurva ROC ini dijadikan \nmetrik evaluasi untuk model klasifikasi yang digunakan dan mengukur seberapa baik model dapat \nmembedakan antara kelas positif dan negatif.&#39;, &#39;Kurva ROC didapatkan dari nilai antara False Positive Rate dan \nTrue Positive Rate pada confusion matrix.&#39;, &#39;Kinerjanya dari model yang digunakan dapat dilihat dari luas area \ndibawah kurva atau disebut Area Under Curve (AUC).&#39;, &#39;Jurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n92\n \n \nGambar 6.&#39;, &#39;Grafik ROC \n \nNilai AUC akan terlihat bagus kinerja jika luasnya lebih besar.&#39;, &#39;Pada penelitian ini diperoleh nilai AUC \nsebesar 0,91 dan terbukti bahwa luas area di bawah kurva lebih besar dibandingkan dengan luas area di atas \nkurva.&#39;, &#39;Nilai AUC yang didapatkan masuk kedalam kelompok Excellent Classification berdasarkan tingkat nilai \ndiagnosa pada kurva ROC.&#39;, &#39;Nilai AUC dengan range 0.90-1.00 masuk ke dalam Excellent Classification \nPenyajian kurva ROC dapat dilihat pada gambar 6.&#39;, &#39;IV.&#39;, &#39;KESIMPULAN \nHasil penelitian mengenai analisis sentimen masyarakat terhadap isu kenaikan Biaya Perjalanan Ibadah \nHaji, terbukti bahwa algoritma Naive Bayes merupakan pengklasifikasi teks yang baik dengan memperoleh \nnilai akurasi sebesar 89% dan nilai ROC sebesar 0,91 masuk kedalam Excellent Classification.&#39;, &#39;Penelitian ini \ndiharapkan dapat menjadi bahan pertimbangan pemerintah dalam menentukan kenaikan biaya perjalanan \nibadah haji, karena dengan adanya penelitian ini menunjukan bahwa banyak masyarakat yang tidak setuju \n(kontra) atas isu kenaikan biaya perjalanan ibadah haji ini.&#39;, &#39;Diharapkan pada penelitian selanjutnya dapat \ndilakukan peningkatan nilai akurasi dengan menambahkan seleksi fitur seperti menggunakan algoritma Particle \nSwarm Optimization (PSO), Genetic Algorithm (GA), Information Gain dan lain-lain.&#39;, &#39;UCAPAN TERIMA KASIH  \nPuji dan Syukur peneliti panjatkan kepada Tuhan Yang Maha Esa yang telah melimpahkan Rahmat dan \nKarunia-Nya sehingga peneliti dapat menyelesaikan penelitian dengan judul Pembobotan TF-IDF \nMenggunakan Naïve Bayes pada Sentimen Masyarakat Mengenai Isu Kenaikan Biaya Perjalanan Ibadah Haji.&#39;, &#39;Peneliti juga mengucapkan terima kasih kepada institusi, yaitu Universitas Bina Sarana Informatika dan \nUniversitas Nusa Mandiri yang telah memberikan dukungan kepada para peneliti sehingga penelitian ini dapat \nterselesaikan.&#39;, &#39;DAFTAR PUSTAKA \n[1] \nA. Yusuf, “Kontroversi Biaya Haji,” Badan Pengelola Keuangan Haji, Feb. 09, 2023. \nhttps://bpkh.go.id/kontroversi-biaya-haji/ (accessed Feb. 27, 2023).&#39;, &#39;[2] \nM. Khoeron, “BPIH, antara Kalkulasi Biaya dan Kebijakan Politik,” Kementerian Agama, Feb. 21, \n2023. https://kemenag.go.id/read/bpih-antara-kalkulasi-biaya-dan-kebijakan-politik-v5bm1 (accessed \nMar.&#39;, &#39;06, 2023).&#39;, &#39;[3] \nE. Febriyani and H. Februariyanti, “Analisis Sentimen Terhadap Program Kampus Merdeka \nMenggunakan Algoritma Naive Bayes Classifier Di Twitter,” Tekno Kompak, vol.&#39;, &#39;17, no.&#39;, &#39;1, pp.&#39;, &#39;25–\n38, 2023.&#39;, &#39;[4] \nS. A. El Rahman, F. A. AlOtaibi, and W. A. AlShehri, “Sentiment Analysis of Twitter Data,” in 2019 \nInternational Conference on Computer and Information Sciences (ICCIS), 2019.&#39;, &#39;Jurnal Manajemen Informatika (JAMIKA) \nVolume 13 Nomor 1 Edisi April 2023 \nE ISSN: 2655-6960 | P ISSN: 2088-4125 \nOJS: https://ojs.unikom.ac.id/index.php/jamika \n \n \ndoi : 10.34010/jamika.v13i1.9424    \n \n \n93\n[5] \nM. I. Fikri, T. S. Sabrila, and Y. Azhar, “Perbandingan Metode Naïve Bayes dan Support Vector \nMachine pada Analisis Sentimen Twitter,” SMATIKA, vol.&#39;, &#39;10, no.&#39;, &#39;2, pp.&#39;, &#39;71–76, 2020.&#39;, &#39;[6] \nA. Alsaeedi and M. Z. Khan, “A study on sentiment analysis techniques of Twitter data,” International \nJournal of Advanced Computer Science and Applications, vol.&#39;, &#39;10, no.&#39;, &#39;2, pp.&#39;, &#39;361–374, 2019, doi: \n10.14569/ijacsa.2019.0100248.&#39;, &#39;[7] \nM. Abbas, K. Ali, A. Jamali, K. Ali Memon, and A. Aleem Jamali, “Multinomial Naive Bayes \nClassification Model for Sentiment Analysis Wireless Sensor Networks View project Analyzing \nDistributed Denial of Service Attacks in Cloud Computing Towards the Pakistan Information \nTechnology Industry View project Multinomial Naive Bayes Classification Model for Sentiment \nAnalysis,” IJCSNS International Journal of Computer Science and Network Security, vol.&#39;, &#39;19, no.&#39;, &#39;3, p. \n62, 2019, doi: 10.13140/RG.2.2.30021.40169.&#39;, &#39;[8] \nS. P. PM and S. B, “Sentimental Analysis using Naive Bayes Classifier,” in 2019 International \nConference on Vision Towards Emerging Trends in Communication and Networking (ViTECoN), \n2019, pp.&#39;, &#39;1–5.&#39;, &#39;[9] \nA. R. Isnain, N. S. Marga, and D. Alita, “Sentiment Analysis Of Government Policy On Corona Case \nUsing Naive Bayes Algorithm,” IJCCS (Indonesian Journal of Computing and Cybernetics Systems), \nvol.&#39;, &#39;15, no.&#39;, &#39;1, p. 55, Jan. 2021, doi: 10.22146/ijccs.60718.&#39;, &#39;[10] \nM. Wongkar and A. Angdresey, “Sentiment Analysis Using Naive Bayes Algorithm Of The Data \nCrawler\u202f: Twitter,” in International Conference on Informatics and Computing (ICIC), 2019.&#39;, &#39;[11] \nM. Romzi and B. Kurniawan, “Pembelajaran Pemrograman Python Dengan Pendekatan Logika \nAlgoritma,” no.&#39;, &#39;2, pp.&#39;, &#39;37–44, 2020.&#39;, &#39;[12] \n“Project Jupyter’s origins and governance,” Mar.&#39;, &#39;13, 2023. https://jupyter.org/about (accessed Mar.&#39;, &#39;13, 2023).&#39;, &#39;[13] \nM. A. Rosid, A. S. Fitrani, I. R. I. Astutik, N. I. Mulloh, and H. A. Gozali, “Improving Text \nPreprocessing for Student Complaint Document Classification Using Sastrawi,” in IOP Conference \nSeries: Materials Science and Engineering, Jul.&#39;, &#39;2020, vol.&#39;, &#39;874, no.&#39;, &#39;1. doi: 10.1088/1757-\n899X/874/1/012017.&#39;, &#39;[14] \nA. Aninditya, M. A. Hasibuan, and E. Sutoyo, “Text Mining Approach Using TF-IDF and Naive Bayes \nfor Classification of Exam Questions Based on Cognitive Level of Bloom’s Taxonomy,” in \nInternational Conference on Internet of Things and Intelligence System (IoTaIS), 2019, pp.&#39;, &#39;112–117.&#39;, &#39;[15] \n“Sastrawi 1.0.1.” https://pypi.org/project/Sastrawi/ (accessed Mar.&#39;, &#39;13, 2023).&#39;, &#39;[16] \nA. Kadhim, “An Evaluation of Preprocessing Techniques for Text Classification Pattern Recognition \nView project Improvement text classification using log(TF-IDF) with K-NN Algorithm View project,” \nInternational Journal of Computer Science and Information Security (IJCSIS), vol.&#39;, &#39;16, no.&#39;, &#39;6, pp.&#39;, &#39;22–\n36, 2018, [Online].&#39;, &#39;Available: https://sites.google.com/site/ijcsis/ \n[17] \nA. Rahman Isnain, A. Indra Sakti, D. Alita, and N. Satya Marga, “Sentimen Analisis Publik Terhadap \nKebijakan Lockdown Pemerintah Jakarta Menggunakan Algoritma SVM,” JDMSI, vol.&#39;, &#39;2, no.&#39;, &#39;1, pp.&#39;, &#39;31–37, 2021, [Online].&#39;, &#39;Available: https://t.co/NfhnfMjtXw \n[18] \nM. Chiny, M. Chihab, Y. Chihab, and O. Bencharef, “LSTM, VADER and TF-IDF based Hybrid \nSentiment Analysis Model,” IJACSA) International Journal of Advanced Computer Science and \nApplications, vol.&#39;, &#39;12, no.&#39;, &#39;7, pp.&#39;, &#39;265–275, 2021, [Online].&#39;, &#39;Available: www.ijacsa.thesai.org \n[19] \nD. Darwis, N. Siskawati, and Z. Abidin, “Penerapan Algoritma Naive Bayes untuk Analisis Sentimen \nReview Data Twitter BMKG Nasional,” vol.&#39;, &#39;15, no.&#39;, &#39;1, 2021.&#39;, &#39;[20] \n“1.9.&#39;, &#39;Naive Bayes.” https://scikit-learn.org/stable/modules/naive_bayes.html (accessed Mar.&#39;, &#39;13, \n2023).&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="save-ke-csv">
+<h2>save ke csv<a class="headerlink" href="#save-ke-csv" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                               kalimat
+0     \nJurnal Manajemen Informatika (JAMIKA) \nVol...
+1    Terdapat kenaikan biaya yang cukup tinggi diba...
+2    Hal ini menimbulkan sentimen pada \nmasyarakat...
+3    Tujuan \ndari penelitian ini adalah untuk meng...
+4    Naive Baye \nmerupakan salah satu algoritma pe...
+..                                                 ...
+226                                            15, no.
+227                                           1, 2021.
+228                                       [20] \n“1.9.
+229  Naive Bayes.” https://scikit-learn.org/stable/...
+230                                       13, \n2023).
+
+[231 rows x 1 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;kalimat.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-a04e10b7-b19a-4979-8ce3-d44ceeccefa1" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kalimat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>\nJurnal Manajemen Informatika (JAMIKA) \nVol...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Terdapat kenaikan biaya yang cukup tinggi diba...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Hal ini menimbulkan sentimen pada \nmasyarakat...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Tujuan \ndari penelitian ini adalah untuk meng...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Naive Baye \nmerupakan salah satu algoritma pe...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a04e10b7-b19a-4979-8ce3-d44ceeccefa1')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-a04e10b7-b19a-4979-8ce3-d44ceeccefa1 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-a04e10b7-b19a-4979-8ce3-d44ceeccefa1');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-be92c0f0-2af6-47a0-8aaf-ae705e728b6d">
+      <button class="colab-df-quickchart" onclick="quickchart('df-be92c0f0-2af6-47a0-8aaf-ae705e728b6d')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-be92c0f0-2af6-47a0-8aaf-ae705e728b6d button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;jumlah data:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jumlah data: 232
+0                                               kalimat
+1      \nJurnal Manajemen Informatika (JAMIKA) \nVol...
+2     Terdapat kenaikan biaya yang cukup tinggi diba...
+3     Hal ini menimbulkan sentimen pada \nmasyarakat...
+4     Tujuan \ndari penelitian ini adalah untuk meng...
+5     Naive Baye \nmerupakan salah satu algoritma pe...
+6               Data diambil dari media sosial twitter.
+7     Data \ndikelompokkan menjadi opini pro dan opi...
+8                Data yang digunakan sebanyak 850 data.
+9     Data dibagi menjadi data training dan data tes...
+10    Dengan jumlah data training sebesar 679 data d...
+11    Selanjutnya \nmengimplementasikan algoritma Mu...
+12    Hasil uji coba diperoleh nilai akurasi sebesar...
+13    Terbukti bahwa algoritma Multinominal Naive Ba...
+14    Kata kunci: BIPIH; Naïve Bayes; Analisis Senti...
+15    Abstract \nThe Ministry of Religious Affairs p...
+16    There is a fairly high increase in costs compa...
+17    This raises sentiment in the community, there ...
+18    The purpose of this study was to analyze the s...
+19    Naive Baye is one of the best text classifier ...
+Name: kalimat, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.tokenize</span><span class="w"> </span><span class="kn">import</span> <span class="n">word_tokenize</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">nltk.corpus</span><span class="w"> </span><span class="kn">import</span> <span class="n">stopwords</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">Counter</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="preprocessing-dan-membangun-matrix">
+<h1>Preprocessing dan Membangun Matrix<a class="headerlink" href="#preprocessing-dan-membangun-matrix" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># -------------------------------------------------------------</span>
+<span class="c1"># 1. Load dataset (ambil hanya kolom pertama karena itu kalimatnya)</span>
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;kalimat.csv&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="mi">0</span><span class="p">]]</span>         <span class="c1"># Kolom pertama saja</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">]</span>
+
+<span class="c1"># Buang baris kosong atau NaN</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="c1"># 2. Gabungkan semua teks</span>
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="n">text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;kalimat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="c1"># 3. Bersihkan teks untuk hilangkan noise</span>
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="c1"># Hapus URL</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;http\S+|www\.\S+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Hapus angka</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\d+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Hapus tanda baca</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^a-zA-Z ]&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># Jadikan huruf kecil</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="c1"># Hapus spasi berlebih</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="c1"># 4. Tokenisasi</span>
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="c1"># 5. stopword</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;indonesian&quot;</span><span class="p">))</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">]</span>
+
+<span class="c1"># 6. Buang kata sangat pendek (opsional)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="c1"># 6. Co-occurrence Window</span>
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">co_occurrences</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="n">Counter</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span> <span class="o">-</span> <span class="n">window_size</span><span class="p">),</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">),</span> <span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">:</span>
+            <span class="n">co_occurrences</span><span class="p">[</span><span class="n">word</span><span class="p">][</span><span class="n">words</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="c1"># 7. Bangun Matriks</span>
+<span class="c1"># -------------------------------------------------------------</span>
+<span class="n">unique_words</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">co_occurrences</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">co_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;jumlah kata unik&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">))</span>
+<span class="n">word_index</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="n">idx</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_words</span><span class="p">)}</span>
+
+<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">neighbors</span> <span class="ow">in</span> <span class="n">co_occurrences</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">neighbor</span> <span class="ow">in</span> <span class="n">word_index</span><span class="p">:</span>
+            <span class="n">co_matrix</span><span class="p">[</span><span class="n">word_index</span><span class="p">[</span><span class="n">word</span><span class="p">]][</span><span class="n">word_index</span><span class="p">[</span><span class="n">neighbor</span><span class="p">]]</span> <span class="o">=</span> <span class="n">count</span>
+
+<span class="n">co_matrix_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">co_matrix</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">unique_words</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">unique_words</span><span class="p">)</span>
+
+<span class="n">co_matrix_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jumlah kata unik 781
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-78f393c9-da95-4e31-a08f-6da550a57918" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kalimat</th>
+      <th>jurnal</th>
+      <th>manajemen</th>
+      <th>informatika</th>
+      <th>jamika</th>
+      <th>volume</th>
+      <th>nomor</th>
+      <th>edisi</th>
+      <th>april</th>
+      <th>issn</th>
+      <th>...</th>
+      <th>chihab</th>
+      <th>bencharef</th>
+      <th>lstm</th>
+      <th>vader</th>
+      <th>hybrid</th>
+      <th>darwis</th>
+      <th>siskawati</th>
+      <th>abidin</th>
+      <th>bmkg</th>
+      <th>nasional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>kalimat</th>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>jurnal</th>
+      <td>1</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>manajemen</th>
+      <td>1</td>
+      <td>10</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>20</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>informatika</th>
+      <td>1</td>
+      <td>10</td>
+      <td>10</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>20</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>jamika</th>
+      <td>1</td>
+      <td>10</td>
+      <td>10</td>
+      <td>10</td>
+      <td>0</td>
+      <td>20</td>
+      <td>20</td>
+      <td>20</td>
+      <td>20</td>
+      <td>40</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>darwis</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>siskawati</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>abidin</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>bmkg</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>nasional</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>781 rows × 781 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-78f393c9-da95-4e31-a08f-6da550a57918')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-78f393c9-da95-4e31-a08f-6da550a57918 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-78f393c9-da95-4e31-a08f-6da550a57918');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+    <div id="df-c6e5948d-d23d-4bc2-bf3c-a18a8b09d2d4">
+      <button class="colab-df-quickchart" onclick="quickchart('df-c6e5948d-d23d-4bc2-bf3c-a18a8b09d2d4')"
+                title="Suggest charts"
+                style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+      </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+      <script>
+        async function quickchart(key) {
+          const quickchartButtonEl =
+            document.querySelector('#' + key + ' button');
+          quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+          quickchartButtonEl.classList.add('colab-df-spinner');
+          try {
+            const charts = await google.colab.kernel.invokeFunction(
+                'suggestCharts', [key], {});
+          } catch (error) {
+            console.error('Error during call to suggestCharts:', error);
+          }
+          quickchartButtonEl.classList.remove('colab-df-spinner');
+          quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+        }
+        (() => {
+          let quickchartButtonEl =
+            document.querySelector('#df-c6e5948d-d23d-4bc2-bf3c-a18a8b09d2d4 button');
+          quickchartButtonEl.style.display =
+            google.colab.kernel.accessAllowed ? 'block' : 'none';
+        })();
+      </script>
+    </div>
+
+  <div id="id_6877a4a9-52aa-466f-9302-dbbd9417de65">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('co_matrix_df')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_6877a4a9-52aa-466f-9302-dbbd9417de65 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('co_matrix_df');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;jumlah kata unik:&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">unique_words</span><span class="p">))</span>
+<span class="c1"># print(word_index)</span>
+<span class="c1"># word_index.head()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 5 items of word_index:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">())[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>jumlah kata unik: 781
+First 5 items of word_index: [(&#39;kalimat&#39;, 0), (&#39;jurnal&#39;, 1), (&#39;manajemen&#39;, 2), (&#39;informatika&#39;, 3), (&#39;jamika&#39;, 4)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="word-graph">
+<h1>Word Graph<a class="headerlink" href="#word-graph" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>networkx
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: networkx in /usr/local/lib/python3.12/dist-packages (3.6)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Buat graph dengan node berupa kata asli</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">neighbors</span> <span class="ow">in</span> <span class="n">co_occurrences</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">count</span> <span class="ow">in</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">neighbor</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">count</span><span class="p">)</span>
+
+<span class="c1"># Visualisasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span>
+        <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span>
+        <span class="n">node_size</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+        <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Graf Co-occurrence (Kata Asli)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4463117f8b68ef3bcfe51084a062b6fd1a2fd6590ea0e15c3bda55c91df8aff3.png" src="_images/4463117f8b68ef3bcfe51084a062b6fd1a2fd6590ea0e15c3bda55c91df8aff3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah kata dalam graph:&quot;</span><span class="p">,</span> <span class="n">G</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contoh node:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">())[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah kata dalam graph: 781
+Contoh node: [&#39;kalimat&#39;, &#39;jurnal&#39;, &#39;manajemen&#39;, &#39;informatika&#39;, &#39;jamika&#39;, &#39;volume&#39;, &#39;nomor&#39;, &#39;edisi&#39;, &#39;april&#39;, &#39;kosong&#39;, &#39;remove&#39;, &#39;whitespace&#39;, &#39;tokenization&#39;, &#39;proses&#39;, &#39;pemecahan&#39;, &#39;teks&#39;, &#39;potongan&#39;, &#39;memisahkan&#39;, &#39;menafsirkan&#39;, &#39;mengelompokan&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah edge:&quot;</span><span class="p">,</span> <span class="n">G</span><span class="o">.</span><span class="n">number_of_edges</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Contoh edge:&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">True</span><span class="p">))[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah edge: 10977
+Contoh edge: [(&#39;kalimat&#39;, &#39;jurnal&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;manajemen&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;informatika&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;jamika&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;volume&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;nomor&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;edisi&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;april&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;kosong&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;remove&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;whitespace&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;tokenization&#39;, {&#39;weight&#39;: 3}), (&#39;kalimat&#39;, &#39;proses&#39;, {&#39;weight&#39;: 5}), (&#39;kalimat&#39;, &#39;pemecahan&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;teks&#39;, {&#39;weight&#39;: 2}), (&#39;kalimat&#39;, &#39;potongan&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;memisahkan&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;menafsirkan&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;mengelompokan&#39;, {&#39;weight&#39;: 1}), (&#39;kalimat&#39;, &#39;token&#39;, {&#39;weight&#39;: 1})]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pagerank">
+<h1>PageRank<a class="headerlink" href="#pagerank" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
+
+<span class="n">pagerank_scores</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;kalimat&#39;: 0.00102945594956916, &#39;jurnal&#39;: 0.0027297565837563014, &#39;manajemen&#39;: 0.0027205858982555908, &#39;informatika&#39;: 0.003536824553130675, &#39;jamika&#39;: 0.005821772884615603, &#39;volume&#39;: 0.0026860965573943115, &#39;nomor&#39;: 0.003343129223968817, &#39;edisi&#39;: 0.0027274194701098257, &#39;april&#39;: 0.002726937065665607, &#39;kosong&#39;: 0.0006570208157047453, &#39;remove&#39;: 0.001115074094392895, &#39;whitespace&#39;: 0.0006470843703809293, &#39;tokenization&#39;: 0.0026516839459335036, &#39;proses&#39;: 0.007752061045047088, &#39;pemecahan&#39;: 0.0006083057068341318, &#39;teks&#39;: 0.006341569559833756, &#39;potongan&#39;: 0.0005865587539101893, &#39;memisahkan&#39;: 0.0005674567236027153, &#39;menafsirkan&#39;: 0.0005685018471087566, &#39;mengelompokan&#39;: 0.0005576721928969363, &#39;token&#39;: 0.0009280258779780534, &#39;penelitian&#39;: 0.010373731843153485, &#39;apda&#39;: 0.0005061551311844047, &#39;bidang&#39;: 0.0011768134213314355, &#39;analisis&#39;: 0.004475132699228882, &#39;sentimen&#39;: 0.007543220942075869, &#39;mengubah&#39;: 0.0016035484648679167, &#39;data&#39;: 0.03129127539490022, &#39;kumpulan&#39;: 0.001679574023539546, &#39;numerik&#39;: 0.0011647981185608073, &#39;bisasnya&#39;: 0.0005167105923293432, &#39;pembobotan&#39;: 0.004940663322117804, &#39;memiliki&#39;: 0.0035991610718546156, &#39;metode&#39;: 0.004115400100742535, &#39;issn&#39;: 0.005284414438579568, &#39;haji&#39;: 0.018184417225429208, &#39;diberangkatkan&#39;: 0.00046795888125053704, &#39;isu&#39;: 0.00600503340238195, &#39;kenaikan&#39;: 0.007869884826352045, &#39;biaya&#39;: 0.00890185219688189, &#39;polemik&#39;: 0.0007443706111237287, &#39;perbincangan&#39;: 0.00045315195443088285, &#39;testing&#39;: 0.0041172510505372425, &#39;idf&#39;: 0.009549733698728816, &#39;implementasi&#39;: 0.001320724901363159, &#39;naive&#39;: 0.010225051199594623, &#39;bayes&#39;: 0.015536783347846247, &#39;evaluasi&#39;: 0.0024455763151772264, &#39;dasar&#39;: 0.0016366772552080901, &#39;stopword&#39;: 0.0035794920971015318, &#39;removal&#39;: 0.001969887739407093, &#39;penghapusan&#39;: 0.0009358317746410677, &#39;makna&#39;: 0.0011734511418706618, &#39;khusus&#39;: 0.0004974248591297634, &#39;tokenisasi&#39;: 0.0004917041882648835, &#39;dana&#39;: 0.009929642020212326, &#39;mantab&#39;: 0.0014320356822233196, &#39;bpkh&#39;: 0.002798373071330271, &#39;kelola&#39;: 0.0012078207105194483, &#39;dokumen&#39;: 0.008967750650896996, &#39;gambar&#39;: 0.003993409492504495, &#39;hasil&#39;: 0.006692965296001996, &#39;python&#39;: 0.0037485644713673026, &#39;klasifikasi&#39;: 0.002674884085525173, &#39;mnb&#39;: 0.0020040783138651035, &#39;cocok&#39;: 0.0004822553662144808, &#39;mengklasifikasikan&#39;: 0.0008016871062133549, &#39;fitur&#39;: 0.0019231340714156698, &#39;training&#39;: 0.003531539871270989, &#39;perbandingan&#39;: 0.0012979534159328137, &#39;luas&#39;: 0.0011022455087518746, &#39;area&#39;: 0.0014016407387957602, &#39;dibawah&#39;: 0.0005048965431719408, &#39;kurva&#39;: 0.0026265818541336403, &#39;under&#39;: 0.0009532074148626234, &#39;curve&#39;: 0.0004870703945484316, &#39;auc&#39;: 0.0019566405339046726, &#39;international&#39;: 0.0035533107214459304, &#39;conference&#39;: 0.002166271286456779, &#39;computer&#39;: 0.0019476025110832097, &#39;and&#39;: 0.013578012445969817, &#39;information&#39;: 0.0017938422288599981, &#39;sciences&#39;: 0.00048460452010009675, &#39;iccis&#39;: 0.00047879229080344466, &#39;ojs&#39;: 0.00277551358318118, &#39;rachmi&#39;: 0.0006178330804011538, &#39;program&#39;: 0.0013901320139332607, &#39;studi&#39;: 0.001022361043997929, &#39;sistem&#39;: 0.0010366705502685483, &#39;informasi&#39;: 0.001756028034323734, &#39;universitas&#39;: 0.001866767478880609, &#39;bina&#39;: 0.000992922033936649, &#39;sarana&#39;: 0.0010021115909945788, &#39;jakarta&#39;: 0.0014098999099105476, &#39;indonesia&#39;: 0.002420182315848623, &#39;nusa&#39;: 0.0010588423892618428, &#39;peneliti&#39;: 0.0019174222382399005, &#39;terima&#39;: 0.0010669163392561583, &#39;kasih&#39;: 0.0010836362291349753, &#39;institusi&#39;: 0.0005613981685408368, &#39;mandiri&#39;: 0.0010691707765138495, &#39;dukungan&#39;: 0.0006221865752668479, &#39;terselesaikan&#39;: 0.0006238983987723768, &#39;daftar&#39;: 0.0006302317914281019, &#39;doi&#39;: 0.004297954708837718, &#39;masyarakat&#39;: 0.005353488948303233, &#39;bipih&#39;: 0.004192596091284378, &#39;twitter&#39;: 0.007477694635135897, &#39;naskah&#39;: 0.0005757539033276791, &#39;diterima&#39;: 0.0005812172538072129, &#39;mar&#39;: 0.0027062414562014584, &#39;direvisi&#39;: 0.0005998468317823696, &#39;apr&#39;: 0.001059655709589313, &#39;dipublikasikan&#39;: 0.0006265937060260394, &#39;licensed&#39;: 0.0006531533586010098, &#39;creative&#39;: 0.0006364962381705485, &#39;commons&#39;: 0.0006356101389776519, &#39;attribution&#39;: 0.0006208208209007031, &#39;sharealike&#39;: 0.0006088733255217448, &#39;license&#39;: 0.0005797798393613472, &#39;publik&#39;: 0.0008502519779784164, &#39;menimbulkan&#39;: 0.0010100220360141033, &#39;pro&#39;: 0.0029725423693145246, &#39;kontra&#39;: 0.002887143401179623, &#39;diberbagai&#39;: 0.00046495594732027216, &#39;media&#39;: 0.0037873966701468956, &#39;salah&#39;: 0.0043071029886839725, &#39;satunya&#39;: 0.0004697259184300053, &#39;pengumpulan&#39;: 0.0009666610822815312, &#39;opini&#39;: 0.004941916868467625, &#39;pemisahan&#39;: 0.0004930130266325649, &#39;implementasinya&#39;: 0.000513459056991343, &#39;menginstall&#39;: 0.0005169082497744707, &#39;library&#39;: 0.002481449454034807, &#39;sastrawi&#39;: 0.0026582001042716654, &#39;pip&#39;: 0.0009180558142481289, &#39;review&#39;: 0.001937461978106999, &#39;cleaning&#39;: 0.002055761125080704, &#39;text&#39;: 0.007305261891925024, &#39;stemming&#39;: 0.0030854095321595945, &#39;mendukung&#39;: 0.001384357117720927, &#39;berdarkan&#39;: 0.00046748043695890877, &#39;disimpulkan&#39;: 0.00048005400394135814, &#39;kode&#39;: 0.0011644910291108911, &#39;probabilitas&#39;: 0.0045045260490971725, &#39;algoritma&#39;: 0.007614274716591058, &#39;menghitung&#39;: 0.001523947128276298, &#39;kemunculan&#39;: 0.001798637768721006, &#39;kelas&#39;: 0.0014183520699350988, &#39;tahapan&#39;: 0.003188684317801215, &#39;penerapan&#39;: 0.0011172926813470116, &#39;grafik&#39;: 0.000816251069194142, &#39;roc&#39;: 0.003936651393234443, &#39;nilai&#39;: 0.009811288855959928, &#39;bagus&#39;: 0.0004736568945038494, &#39;kinerja&#39;: 0.0010986071585891905, &#39;luasnya&#39;: 0.0004783986318012539, &#39;fikri&#39;: 0.00047200349426020034, &#39;sabrila&#39;: 0.0004758312246269732, &#39;azhar&#39;: 0.0004821719706014831, &#39;support&#39;: 0.0011260156563670885, &#39;menunjukan&#39;: 0.001716578589582997, &#39;baris&#39;: 0.0008141429635462943, &#39;diolah&#39;: 0.0022565786218027694, &#39;integer&#39;: 0.0005095020145229889, &#39;unik&#39;: 0.0005030751333352892, &#39;skor&#39;: 0.00049765406867982, &#39;dihitung&#39;: 0.0016388469218484667, &#39;journal&#39;: 0.0019746504960550604, &#39;advanced&#39;: 0.0009006933968079955, &#39;science&#39;: 0.002400403477965335, &#39;applications&#39;: 0.0009107189866321263, &#39;vol&#39;: 0.003807020394290908, &#39;ijacsa&#39;: 0.0009227541626976709, &#39;abbas&#39;: 0.0005592538918866487, &#39;ali&#39;: 0.000918050959810947, &#39;jamali&#39;: 0.000914346264440091, &#39;memon&#39;: 0.0005465156207988419, &#39;aleem&#39;: 0.0005433994135419723, &#39;network&#39;: 0.0005330239248173662, &#39;security&#39;: 0.0009219585406479254, &#39;sentimental&#39;: 0.0005357442806063876, &#39;analysis&#39;: 0.0038726701933134025, &#39;using&#39;: 0.003448246757823756, &#39;classifier&#39;: 0.0023358721728741535, &#39;indonesian&#39;: 0.0005699865146206357, &#39;computing&#39;: 0.001774075435685726, &#39;cybernetics&#39;: 0.0005700978122264351, &#39;systems&#39;: 0.0005730023184528368, &#39;jan&#39;: 0.0005755755131283404, &#39;ijccs&#39;: 0.0009567626599586703, &#39;wongkar&#39;: 0.0005553160877199194, &#39;angdresey&#39;: 0.0005476140828567014, &#39;sentiment&#39;: 0.005319398595984404, &#39;series&#39;: 0.0005933780917243469, &#39;materials&#39;: 0.0005922464596532675, &#39;engineering&#39;: 0.0005893343475782966, &#39;jul&#39;: 0.0005921537396520644, &#39;aninditya&#39;: 0.0005845233535108136, &#39;hasibuan&#39;: 0.0005736149514124134, &#39;sutoyo&#39;: 0.0005559224152453373, &#39;mining&#39;: 0.0021949621959284345, &#39;approach&#39;: 0.0005459869048460266, &#39;mengimplementasikan&#39;: 0.0007584800805642237, &#39;multinominal&#39;: 0.001999508826751162, &#39;pengklasifikasi&#39;: 0.0036388062714922697, &#39;uji&#39;: 0.0012958268489194707, &#39;coba&#39;: 0.0007368972553229917, &#39;diperoleh&#39;: 0.0027123340248013743, &#39;akurasi&#39;: 0.0039605454768734775, &#39;dibandingkan&#39;: 0.001690462075157771, &#39;memperoleh&#39;: 0.0010099430651150218, &#39;model&#39;: 0.004264376410609807, &#39;diterapkan&#39;: 0.00047469215146800044, &#39;berbahasa&#39;: 0.00047166952068925807, &#39;dataset&#39;: 0.001307827502528088, &#39;preprocessing&#39;: 0.004939675952926049, &#39;pembagian&#39;: 0.0019188967830482773, &#39;identifikasi&#39;: 0.00101467185740669, &#39;parameter&#39;: 0.0011537082559854254, &#39;rng&#39;: 0.0005125982124519193, &#39;random&#39;: 0.0012218686499214293, &#39;number&#39;: 0.001110954692141346, &#39;generator&#39;: 0.0005215064252264117, &#39;diisi&#39;: 0.0005181675548827351, &#39;term&#39;: 0.0010993077412311475, &#39;frequency&#39;: 0.0020058802255363073, &#39;inverse&#39;: 0.001110510748929675, &#39;document&#39;: 0.0015034206542097214, &#39;berfungsi&#39;: 0.0007917690501015031, &#39;pembelajaran&#39;: 0.0009114210976678794, &#39;mesin&#39;: 0.0005118993433276947, &#39;bof&#39;: 0.000530459231823305, &#39;bag&#39;: 0.0005321816448146245, &#39;words&#39;: 0.0005405752367943744, &#39;gram&#39;: 0.0005305031355783386, &#39;word&#39;: 0.001507817873300236, &#39;kontribusi&#39;: 0.00047231531901659754, &#39;menentukan&#39;: 0.0010516259421457959, &#39;topik&#39;: 0.0007812693596791545, &#39;analisa&#39;: 0.0005177749699764994, &#39;muncul&#39;: 0.0014233268533735046, &#39;top&#39;: 0.0008089918407928665, &#39;disajikan&#39;: 0.0005110217474891985, &#39;bentuk&#39;: 0.0008514880609488552, &#39;diagram&#39;: 0.0008304487843601371, &#39;plot&#39;: 0.00082873238412065, &#39;selesai&#39;: 0.0004719252053693938, &#39;preprocesing&#39;: 0.0008280013841781072, &#39;confusion&#39;: 0.0019198726381240685, &#39;matrix&#39;: 0.0013723664324477877, &#39;memvisualisasikan&#39;: 0.0004749800025332464, &#39;melimpahkan&#39;: 0.0006813134075394523, &#39;rahmat&#39;: 0.0006700024989557752, &#39;karunia&#39;: 0.0006495329886985622, &#39;nya&#39;: 0.0008928070167276757, &#39;menyelesaikan&#39;: 0.0005975182876174837, &#39;judul&#39;: 0.000851663124495493, &#39;perjalanan&#39;: 0.005865906771999641, &#39;weighting&#39;: 0.0008360871930694418, &#39;public&#39;: 0.0009405877741714141, &#39;the&#39;: 0.00795206119228921, &#39;issue&#39;: 0.002084386099152355, &#39;rising&#39;: 0.0009573480889371493, &#39;kedalam&#39;: 0.0013377342312153402, &#39;excellent&#39;: 0.0017243156989093544, &#39;classification&#39;: 0.004049079163771446, &#39;kunci&#39;: 0.0008058678787224922, &#39;abstract&#39;: 0.0005525607354317205, &#39;ministry&#39;: 0.0005597843203045429, &#39;religious&#39;: 0.0005597843203045429, &#39;affairs&#39;: 0.0005762602140661363, &#39;proposes&#39;: 0.0005856651881175706, &#39;increase&#39;: 0.0010556615284473428, &#39;algorithm&#39;: 0.002401166934578029, &#39;test&#39;: 0.003443109618257864, &#39;results&#39;: 0.0005561118278334099, &#39;obtained&#39;: 0.0005532670826951915, &#39;accuracy&#39;: 0.0005505057444035071, &#39;value&#39;: 0.0009158897637039133, &#39;keywords&#39;: 0.0005534320940169697, &#39;objek&#39;: 0.0012659513234382742, &#39;vec&#39;: 0.0005320699266486789, &#39;teknik&#39;: 0.0008450980865140206, &#39;pengolahan&#39;: 0.0005190042517478259, &#39;bobot&#39;: 0.0008067062702577237, &#39;tujuan&#39;: 0.0014648495987447854, &#39;mengidentifikasi&#39;: 0.0004904370785817783, &#39;frekuensi&#39;: 0.00046419218642143123, &#39;dibutuhkan&#39;: 0.0005019241262846381, &#39;jarang&#39;: 0.0004951961060000575, &#39;rumus&#39;: 0.0018770600459950496, &#39;dimana&#39;: 0.0004738260252362215, &#39;mengandung&#39;: 0.00047177727351957384, &#39;mengalikan&#39;: 0.00047461603651703204, &#39;dianggap&#39;: 0.0007445795890517867, &#39;ibadah&#39;: 0.005836249108106864, &#39;for&#39;: 0.0032326748927686932, &#39;exam&#39;: 0.000589601619759738, &#39;questions&#39;: 0.000594589415011688, &#39;based&#39;: 0.0009971325302012366, &#39;recognition&#39;: 0.0005687226673788825, &#39;view&#39;: 0.001755846638236083, &#39;project&#39;: 0.0021358138482074286, &#39;improvement&#39;: 0.0005532974360996913, &#39;log&#39;: 0.0005538725131998529, &#39;with&#39;: 0.0011404901786928395, &#39;chiny&#39;: 0.000580068214082244, &#39;chihab&#39;: 0.0009942022401322856, &#39;bencharef&#39;: 0.0005915020706298059, &#39;lstm&#39;: 0.0005804521435579166, &#39;vader&#39;: 0.0005840323169932374, &#39;hybrid&#39;: 0.0005662630874105278, &#39;risa&#39;: 0.0006039725425288738, &#39;wati&#39;: 0.0006067930124006174, &#39;membuktikan&#39;: 0.0007203332498624665, &#39;baye&#39;: 0.0008200567700994193, &#39;terbukti&#39;: 0.0013211944777497574, &#39;masuk&#39;: 0.001919088393263665, &#39;cost&#39;: 0.0013765137319105467, &#39;hajj&#39;: 0.0013701343319553899, &#39;travel&#39;: 0.001369888180948171, &#39;prove&#39;: 0.0005408087175506822, &#39;whether&#39;: 0.0005487936989559847, &#39;good&#39;: 0.0008905285246359757, &#39;incremental&#39;: 0.0005370113580185159, &#39;then&#39;: 0.000856606656073219, &#39;implement&#39;: 0.00048656326338189813, &#39;proven&#39;: 0.0005511834868097327, &#39;that&#39;: 0.0005494307213233427, &#39;because&#39;: 0.0005511949637344983, &#39;included&#39;: 0.0005453744896153901, &#39;dipilih&#39;: 0.0004763468977949555, &#39;mudah&#39;: 0.0008165248362095214, &#39;cepat&#39;: 0.0005006417618773039, &#39;penerapannya&#39;: 0.0005014082463163699, &#39;ulasan&#39;: 0.0004990463622692224, &#39;berdasarkan&#39;: 0.001330349935860222, &#39;probability&#39;: 0.0004853859569737406, &#39;vector&#39;: 0.0011353028531215282, &#39;machine&#39;: 0.0017859799473382001, &#39;presisi&#39;: 0.0004905163189240939, &#39;recall&#39;: 0.0004905670520722191, &#39;score&#39;: 0.0004923765414319933, &#39;memprediksi&#39;: 0.001074007677158994, &#39;tetang&#39;: 0.000508608617641764, &#39;kebijakan&#39;: 0.0016463697382133817, &#39;pemerintah&#39;: 0.0019209012321928288, &#39;new&#39;: 0.0004994675507292079, &#39;normal&#39;: 0.0005040909558469744, &#39;crawler&#39;: 0.0008371632513685988, &#39;percobaan&#39;: 0.0004929111858848613, &#39;membandingkan&#39;: 0.000492329478794008, &#39;svm&#39;: 0.0008699946910951585, &#39;knn&#39;: 0.0004910469431856914, &#39;tingkat&#39;: 0.0011538797306537394, &#39;kementerian&#39;: 0.00166039718212198, &#39;didasarkan&#39;: 0.00048547902760529455, &#39;teorema&#39;: 0.0004874704216838038, &#39;learning&#39;: 0.0011610670462981218, &#39;memanfaatkan&#39;: 0.0007720918967514822, &#39;perhitungan&#39;: 0.0008331551229248826, &#39;statistika&#39;: 0.00047859223654107185, &#39;didistribusikan&#39;: 0.0004958477778517171, &#39;multinasional&#39;: 0.0004958873791451415, &#39;varian&#39;: 0.0005074523138768143, &#39;klasik&#39;: 0.0005049689259409368, &#39;biasayanya&#39;: 0.0004900088604307628, &#39;email&#39;: 0.000490483091220642, &#39;spam&#39;: 0.0007890902103962147, &#39;netral&#39;: 0.0004943250327243999, &#39;eksperimen&#39;: 0.0011132152044003138, &#39;mengimport&#39;: 0.0008603335825197787, &#39;multinomialnb&#39;: 0.0008757605631142867, &#39;modul&#39;: 0.000913529605003503, &#39;scikit&#39;: 0.0005261073385717796, &#39;learn&#39;: 0.0005273022051738855, &#39;pelatihan&#39;: 0.0005192918176834809, &#39;prediksi&#39;: 0.0012011625649335142, &#39;multinomial&#39;: 0.001504160055778968, &#39;kategori&#39;: 0.003148604192766168, &#39;keterangan&#39;: 0.0009942465570915823, &#39;prior&#39;: 0.00045067475684203574, &#39;langkah&#39;: 0.0007383224459324468, &#39;februariyanti&#39;: 0.0005589126572310922, &#39;kampus&#39;: 0.0005552149977458028, &#39;merdeka&#39;: 0.0005524023510189787, &#39;tekno&#39;: 0.0005575301817236822, &#39;kompak&#39;: 0.0005505782152305467, &#39;rahman&#39;: 0.0009344422636734459, &#39;alotaibi&#39;: 0.000535096339834054, &#39;smatika&#39;: 0.0005243286568785013, &#39;wireless&#39;: 0.0005998351495375418, &#39;sensor&#39;: 0.0006148207295082853, &#39;networks&#39;: 0.0006320502575570899, &#39;pakistan&#39;: 0.0006281579107532762, &#39;technology&#39;: 0.0005979190359968708, &#39;industry&#39;: 0.0005843225710989927, &#39;ijcsns&#39;: 0.0005245588549572463, &#39;vision&#39;: 0.0005988366359095084, &#39;towards&#39;: 0.001065272104539328, &#39;emerging&#39;: 0.0005970899723688884, &#39;trends&#39;: 0.0006033349912715056, &#39;communication&#39;: 0.0006062394974979074, &#39;government&#39;: 0.000585914187655359, &#39;policy&#39;: 0.0005834011681798578, &#39;corona&#39;: 0.0005715778864563024, &#39;case&#39;: 0.001254388910810966, &#39;informatics&#39;: 0.0005467016171700498, &#39;cognitive&#39;: 0.0006108003442150811, &#39;level&#39;: 0.0006201843780475071, &#39;bloom&#39;: 0.000635621287140562, &#39;available&#39;: 0.0013570239875850233, &#39;darwis&#39;: 0.0005360907047024354, &#39;siskawati&#39;: 0.0005298984819330214, &#39;abidin&#39;: 0.0005209289030708661, &#39;bmkg&#39;: 0.0004581494348709668, &#39;nasional&#39;: 0.00044032214748223843, &#39;accessed&#39;: 0.0020359728375564604, &#39;juta&#39;: 0.0014009898783319914, &#39;sosial&#39;: 0.002519767876920711, &#39;menganalisa&#39;: 0.001078702111799117, &#39;berkomunikasi&#39;: 0.0005883762057129851, &#39;dunia&#39;: 0.0005946971588014038, &#39;tweets&#39;: 0.0006002291698705958, &#39;berisi&#39;: 0.001251260102622219, &#39;komentar&#39;: 0.0006110162005167595, &#39;resource&#39;: 0.0006205070344579679, &#39;menganalisis&#39;: 0.0006262208322671164, &#39;instansi&#39;: 0.0006337278351899869, &#39;perorangan&#39;: 0.0006321487089428943, &#39;dikenal&#39;: 0.0006525895560282028, &#39;opinion&#39;: 0.0010051317247885487, &#39;emosi&#39;: 0.0006521123131052065, &#39;artificial&#39;: 0.0006705891725813547, &#39;intelligence&#39;: 0.0011258657399053859, &#39;pemanfaatan&#39;: 0.0006743534628902397, &#39;nlp&#39;: 0.0006896666151494733, &#39;mengevaluasi&#39;: 0.0006473696368887821, &#39;memeriksa&#39;: 0.0006269664327888762, &#39;emosional&#39;: 0.000624109232140667, &#39;subjektif&#39;: 0.0005968679022384949, &#39;permasalahan&#39;: 0.0004505004006386771, &#39;positif&#39;: 0.002654690856969252, &#39;negatif&#39;: 0.0026319440907235938, &#39;iii&#39;: 0.00047862178244780824, &#39;pembahasan&#39;: 0.0004851672268470428, &#39;pengujian&#39;: 0.00048306395584516836, &#39;terkait&#39;: 0.0004692804318447715, &#39;penyajian&#39;: 0.00048602157473771613, &#39;kesimpulan&#39;: 0.00048031342477536664, &#39;agama&#39;: 0.0016473931043570658, &#39;feb&#39;: 0.0014239335843577643, &#39;febriyani&#39;: 0.000562764479837934, &#39;alsaeedi&#39;: 0.0005233056935139271, &#39;khan&#39;: 0.0005251617745740699, &#39;study&#39;: 0.0008953795832296399, &#39;isnain&#39;: 0.0010384867665864629, &#39;indra&#39;: 0.0005871664210164205, &#39;sakti&#39;: 0.00058529069558332, &#39;alita&#39;: 0.0010135711126813898, &#39;satya&#39;: 0.0005846206109895994, &#39;marga&#39;: 0.001022386105776449, &#39;lockdown&#39;: 0.0005622709521500332, &#39;dikumpulkan&#39;: 0.0005891102784991414, &#39;januari&#39;: 0.0005749703335286806, &#39;februari&#39;: 0.0005604768130310276, &#39;contoh&#39;: 0.000843433967113168, &#39;sample&#39;: 0.0007168985964043663, &#39;diklasifikasikan&#39;: 0.0007297507083025064, &#39;manual&#39;: 0.0007299022136956878, &#39;kriteria&#39;: 0.00045715911726635836, &#39;tabel&#39;: 0.0007674229508986441, &#39;diambil&#39;: 0.001268200023708729, &#39;setuju&#39;: 0.0004490074469665852, &#39;jemaah&#39;: 0.001087853354567228, &#39;berangkat&#39;: 0.0007859747492515207, &#39;diharapkan&#39;: 0.0007783299484173385, &#39;peningkatan&#39;: 0.0005069117027215182, &#39;mengusulkan&#39;: 0.0015959807866264097, &#39;menaikkan&#39;: 0.0005479956558700726, &#39;dibayar&#39;: 0.0004996529161272503, &#39;calon&#39;: 0.0005054843256823387, &#39;jamaah&#39;: 0.0004994010220615559, &#39;usulan&#39;: 0.0005310112793440699, &#39;dipicu&#39;: 0.0005335923813954676, &#39;arab&#39;: 0.0005360565483445332, &#39;saudi&#39;: 0.0005485331883917843, &#39;menetapkan&#39;: 0.0005506829443463097, &#39;masyair&#39;: 0.0005542429432668077, &#39;signifikan&#39;: 0.0005537488613329163, &#39;komposisi&#39;: 0.0005388918550637562, &#39;penggunaan&#39;: 0.0005162846862054374, &#39;acak&#39;: 0.0007181745565965946, &#39;berjalan&#39;: 0.0004682843185010169, &#39;sesuai&#39;: 0.0007678307644704296, &#39;bahasa&#39;: 0.0031387185288203803, &#39;bahan&#39;: 0.0004773375814750286, &#39;pertimbangan&#39;: 0.0004777380201992124, &#39;siti&#39;: 0.0006142458251387204, &#39;ernawati&#39;: 0.0006155731229256737, &#39;hilda&#39;: 0.0006216932689809133, &#39;million&#39;: 0.0006455035506722892, &#39;there&#39;: 0.001060267264000115, &#39;fairly&#39;: 0.0006251541938135396, &#39;high&#39;: 0.0006296935156628766, &#39;costs&#39;: 0.0006383059787624622, &#39;compared&#39;: 0.0006389878491134136, &#39;this&#39;: 0.0010073453861077601, &#39;opinions&#39;: 0.0009503490941742032, &#39;against&#39;: 0.0005521138546633608, &#39;social&#39;: 0.0011894964826898457, &#39;purpose&#39;: 0.0005453795143276182, &#39;was&#39;: 0.0005468698484017084, &#39;pendahuluan&#39;: 0.0005832691086381129, &#39;manfaat&#39;: 0.0008355150602077266, &#39;pemrograman&#39;: 0.002456365039646467, &#39;jupyter&#39;: 0.0021403814127436463, &#39;editor&#39;: 0.0013895680117046165, &#39;into&#39;: 0.0008597758152179003, &#39;contra&#39;: 0.0005524305584450316, &#39;processed&#39;: 0.0005502416231726668, &#39;programming&#39;: 0.0005530535198192581, &#39;language&#39;: 0.0005486232033884894, &#39;improving&#39;: 0.0005997568807761099, &#39;student&#39;: 0.0005960380063135029, &#39;complaint&#39;: 0.0005949930464959311, &#39;iop&#39;: 0.0005854056353296876, &#39;pattern&#39;: 0.0005736815221749811, &#39;raises&#39;: 0.0006426884081081211, &#39;community&#39;: 0.000617786203206863, &#39;are&#39;: 0.0009558939722290577, &#39;analyze&#39;: 0.0005523019602782656, &#39;increasing&#39;: 0.0009323857048751773, &#39;one&#39;: 0.0005463186145016981, &#39;best&#39;: 0.0005450390822924114, &#39;algorithms&#39;: 0.0005279428484904037, &#39;alshehri&#39;: 0.0005414059969499133, &#39;techniques&#39;: 0.0009508328085625871, &#39;analyzing&#39;: 0.0006478327115472259, &#39;distributed&#39;: 0.0006591482755341647, &#39;networking&#39;: 0.0006196010103203749, &#39;vitecon&#39;: 0.0006291188944270872, &#39;taken&#39;: 0.0005442049293536919, &#39;from&#39;: 0.0009182578478567646, &#39;grouped&#39;: 0.0005468684145189303, &#39;used&#39;: 0.0005191791565735994, &#39;much&#39;: 0.0005210295104973461, &#39;divided&#39;: 0.0005017705438237819, &#39;ratio&#39;: 0.0004904658995969619, &#39;denial&#39;: 0.0006626088469336587, &#39;service&#39;: 0.0006732415714315198, &#39;attacks&#39;: 0.0006724572275583439, &#39;cloud&#39;: 0.0006635808984768194, &#39;mail&#39;: 0.0006185397392126184, &#39;risawati&#39;: 0.000608203680554893, &#39;rwx&#39;: 0.0005968160137470304, &#39;linguistik&#39;: 0.0007001197204965235, &#39;komputasi&#39;: 0.0007080828517841697, &#39;pengukuran&#39;: 0.0006936316717699215, &#39;bio&#39;: 0.0006751616813624566, &#39;mengenali&#39;: 0.0006648734675458712, &#39;hubung&#39;: 0.00048280450087511984, &#39;bsi&#39;: 0.0005893694243276587, &#39;pustaka&#39;: 0.0006295212966324062, &#39;abstrak&#39;: 0.0005803468521786589, &#39;jdmsi&#39;: 0.0005741515359423274, &#39;online&#39;: 0.0013566986444220402, &#39;pemrosesan&#39;: 0.0007919936316502414, &#39;marix&#39;: 0.000471294707862037, &#39;aturan&#39;: 0.0005025263672923932, &#39;ditulis&#39;: 0.0005287405972801073, &#39;php&#39;: 0.0005272553464128938, &#39;pengembalian&#39;: 0.0005435538450845616, &#39;efektif&#39;: 0.0005580302918923285, &#39;relevan&#39;: 0.0006174367892664668, &#39;kamus&#39;: 0.0006352574527210145, &#39;wiiih&#39;: 0.0006631830297783356, &#39;emmm&#39;: 0.000680579608009324, &#39;kalo&#39;: 0.0018236363685372446, &#39;ngga&#39;: 0.0007116515139907226, &#39;masy&#39;: 0.0007222663389611556, &#39;yaaa&#39;: 0.0007105621848907428, &#39;pdhal&#39;: 0.0006979563642136024, &#39;sngj&#39;: 0.0006981390559779479, &#39;yusuf&#39;: 0.0006299063977468189, &#39;kontroversi&#39;: 0.0006256971116413715, &#39;menaikan&#39;: 0.0004716234955777299, &#39;khoeron&#39;: 0.0006009341071236623, &#39;bpih&#39;: 0.0006089114445075335, &#39;kalkulasi&#39;: 0.0005982245961885285, &#39;politik&#39;: 0.0005952392804738389, &#39;link&#39;: 0.0004959791987499756, &#39;fungsi&#39;: 0.00047386649578067615, &#39;badan&#39;: 0.0006280945799897115, &#39;pengelola&#39;: 0.0006428989408140252, &#39;keuangan&#39;: 0.0006268853752569793, &#39;seleksi&#39;: 0.0008374442743583487, &#39;file&#39;: 0.0005664441935254648, &#39;disimpan&#39;: 0.0005789879877662123, &#39;format&#39;: 0.0005920583295198555, &#39;csv&#39;: 0.0005825351742618279, &#39;comma&#39;: 0.0005795254839275079, &#39;separated&#39;: 0.0005807379305753375, &#39;values&#39;: 0.0005874597747584777, &#39;huruf&#39;: 0.000516688816035475, &#39;folding&#39;: 0.0008676762889261466, &#39;modus&#39;: 0.0010072491824227212, &#39;menghapus&#39;: 0.0015056400348649453, &#39;tanda&#39;: 0.0022059444379291223, &#39;baca&#39;: 0.0011641154745718092, &#39;punct&#39;: 0.0006497800756211956, &#39;koma&#39;: 0.0006713056604624441, &#39;ngembat&#39;: 0.0015705586183345237, &#39;dosa&#39;: 0.0015647219450608948, &#39;yhrk&#39;: 0.000468888485870422, &#39;tan&#39;: 0.0004630877079936002, &#39;benalu&#39;: 0.0014973620451233542, &#39;tuh&#39;: 0.0004635948199808577, &#39;bawa&#39;: 0.001500858133988052, &#39;kabur&#39;: 0.0015000990365776879, &#39;uang&#39;: 0.0014931836574083055, &#39;negara&#39;: 0.0028105126293515685, &#39;koruptor&#39;: 0.001493003307977804, &#39;naikan&#39;: 0.0009698755545538963, &#39;bemsin&#39;: 0.00121876470817709, &#39;listrik&#39;: 0.001487958208338571, &#39;buzzer&#39;: 0.0012356392424882163, &#39;gaji&#39;: 0.0014970375731540174, &#39;salafy&#39;: 0.0014984181895961411, &#39;wahabi&#39;: 0.0014948429113879119, &#39;buzer&#39;: 0.00044314944629330894, &#39;oposisicerdas&#39;: 0.0004686174792699755, &#39;msaid&#39;: 0.00046756933985900973, &#39;didu&#39;: 0.0004671350284429563, &#39;usut&#39;: 0.0015621642195266857, &#39;penyelewengan&#39;: 0.0010262347206516128, &#39;seleweng&#39;: 0.0007259412992056654, &#39;democrazymedia&#39;: 0.00045229307368528464, &#39;mengelola&#39;: 0.000981141873097149, &#39;sanggup&#39;: 0.001239130820942543, &#39;amanah&#39;: 0.0015038494870258997, &#39;sangup&#39;: 0.000452003601228318, &#39;hoshrii&#39;: 0.00044990222612928724, &#39;pengelolaan&#39;: 0.0009472997396133603, &#39;berkeadilan&#39;: 0.0009886089894153044, &#39;berkelanjutan&#39;: 0.0009922852450192478, &#39;dukung&#39;: 0.0007173833643746694, &#39;adil&#39;: 0.0007172125328853676, &#39;didapatkan&#39;: 0.0013417286538899393, &#39;dikelompokkan&#39;: 0.0007256338479509168, &#39;saran&#39;: 0.000508762872881548, &#39;kritik&#39;: 0.0005228480300928232, &#39;pengguna&#39;: 0.0005864907506286692, &#39;icic&#39;: 0.0005672268938122875, &#39;romzi&#39;: 0.0005686177451220877, &#39;dihasilkan&#39;: 0.0007524717073302154, &#39;digambarkan&#39;: 0.0004621712285453769, &#39;menyaring&#39;: 0.000592207521871377, &#39;sambung&#39;: 0.0005745931740389228, &#39;ganti&#39;: 0.0005697417334501484, &#39;menghilanmgkan&#39;: 0.0005673407422367127, &#39;awalan&#39;: 0.0005662336943861978, &#39;akhiran&#39;: 0.0005522251521448333, &#39;variabel&#39;: 0.0009354617906920991, &#39;train&#39;: 0.0027205830403237217, &#39;dependen&#39;: 0.0009034536586882357, &#39;dilatih&#39;: 0.0009455127766050172, &#39;diuji&#39;: 0.000518784180646807, &#39;latih&#39;: 0.0007590869924916333, &#39;deep&#39;: 0.00051663905472936, &#39;maksimal&#39;: 0.0005231924975183885, &#39;tertinggi&#39;: 0.0007192082519903175, &#39;particle&#39;: 0.0005964888534582152, &#39;swarm&#39;: 0.0006038046781303767, &#39;maha&#39;: 0.0007071967679570979, &#39;esa&#39;: 0.0006926843005230865, &#39;menilai&#39;: 0.0005330134216148259, &#39;dijadikan&#39;: 0.0005058269008317877, &#39;metrik&#39;: 0.0005005072470727452, &#39;mengukur&#39;: 0.0004971790851387582, &#39;ilmu&#39;: 0.0005806406005549497, &#39;scientific&#39;: 0.0005592829209978001, &#39;berperan&#39;: 0.00048479990491279233, &#39;mengetikan&#39;: 0.0005440551261737504, &#39;install&#39;: 0.0005424394049000976, &#39;tahap&#39;: 0.0005200096484377617, &#39;menghilangkan&#39;: 0.0008520005188310648, &#39;noise&#39;: 0.0004803948207144043, &#39;rosid&#39;: 0.0006019968026950758, &#39;fitrani&#39;: 0.0006008286563904451, &#39;astutik&#39;: 0.0006129151776550139, &#39;mulloh&#39;: 0.0006131753662644995, &#39;gozali&#39;: 0.0006014272785975058, &#39;kadhim&#39;: 0.0006031444664068393, &#39;evaluation&#39;: 0.0005927445381126322, &#39;dipelajari&#39;: 0.0005571118476759927, &#39;perangkat&#39;: 0.0005572062672627113, &#39;melatih&#39;: 0.00047305092257911383, &#39;mencari&#39;: 0.0004745115599385797, &#39;menguji&#39;: 0.0004886418411114246, &#39;true&#39;: 0.0015856103217102967, &#39;characteristic&#39;: 0.0005427016636634333, &#39;optimization&#39;: 0.0006157822004075304, &#39;pso&#39;: 0.0006268010462238368, &#39;genetic&#39;: 0.0006484611332410429, &#39;gain&#39;: 0.0006930746187021957, &#39;kurniawan&#39;: 0.000570614427308393, &#39;pendekatan&#39;: 0.0005822408339037406, &#39;logika&#39;: 0.0005823757994797073, &#39;origins&#39;: 0.0005898744800105027, &#39;governance&#39;: 0.0005991705262140752, &#39;dibagi&#39;: 0.0007400756996267463, &#39;package&#39;: 0.0005633732477678706, &#39;installer&#39;: 0.0005562898144667976, &#39;karakter&#39;: 0.0006725877583383167, &#39;terisolasi&#39;: 0.0005640441428275088, &#39;lunak&#39;: 0.0005699199406435949, &#39;bersifat&#39;: 0.0005747164453111381, &#39;open&#39;: 0.0005736252427256311, &#39;source&#39;: 0.000576221179241006, &#39;mempengaruhi&#39;: 0.0004811785164412104, &#39;keakuratan&#39;: 0.00048353663286863723, &#39;membagi&#39;: 0.00046074751892842693, &#39;traning&#39;: 0.0004609533836446675, &#39;sklearn&#39;: 0.0008944243117315269, &#39;sublibrary&#39;: 0.0008934679825408787, &#39;spilt&#39;: 0.0005419723422727301, &#39;label&#39;: 0.0005458883826131985, &#39;size&#39;: 0.0005496814725718317, &#39;state&#39;: 0.0008931703584089982, &#39;definisi&#39;: 0.0005753882632354866, &#39;datax&#39;: 0.0005689648902844149, &#39;adakan&#39;: 0.0005712117906374204, &#39;dites&#39;: 0.0005748535962687372, &#39;diprediksi&#39;: 0.001201552386328123, &#39;false&#39;: 0.0015204895708236608, &#39;matriks&#39;: 0.0004613209206535438, &#39;dijabarkan&#39;: 0.0005191230505491317, &#39;persamaan&#39;: 0.0005355630614376559, &#39;receiver&#39;: 0.0005367168357342619, &#39;operating&#39;: 0.0005420364894933043, &#39;total&#39;: 0.0004548798429193707, &#39;asumsi&#39;: 0.0004561802581003791, &#39;membedakan&#39;: 0.0004956504292265315, &#39;positive&#39;: 0.0008002830833293811, &#39;rate&#39;: 0.000800926646144646, &#39;kelompok&#39;: 0.00048605138349676065, &#39;diagnosa&#39;: 0.0004935901158093913, &#39;range&#39;: 0.0004974304934061598, &#39;istilah&#39;: 0.0007076875492086196, &#39;taxonomy&#39;: 0.0006506292699568101, &#39;iotais&#39;: 0.000616546879175188, &#39;internet&#39;: 0.0006445874873606168, &#39;things&#39;: 0.0006450192356628076, &#39;system&#39;: 0.0006282367910124835, &#39;ijcsis&#39;: 0.0005777950604669018, &#39;berasal&#39;: 0.0005590017047009591, &#39;selection&#39;: 0.0012743674464276628, &#39;import&#39;: 0.0005427731144772943, &#39;split&#39;: 0.0008942828236459333, &#39;ucapan&#39;: 0.000712791423686942, &#39;puji&#39;: 0.0007243544511921097, &#39;syukur&#39;: 0.0007255096440615372, &#39;finish&#39;: 0.0009090728899943581, &#39;kinerjanya&#39;: 0.0005162298552257958, &#39;diartikan&#39;: 0.0005580166672934572, &#39;website&#39;: 0.0006816676526671471, &#39;angka&#39;: 0.000684487528349432, &#39;malapraktik&#39;: 0.0006980046639592048, &#39;bgmn&#39;: 0.0006965905551824781, &#39;bhkn&#39;: 0.0006828697939129185, &#39;wakk&#39;: 0.0006839352012903979, &#39;adlh&#39;: 0.0006778840767241083, &#39;berimbuhan&#39;: 0.0006353668353667433, &#39;titik&#39;: 0.0006920796709932822, &#39;seru&#39;: 0.0007188572801735463, &#39;hashtag&#39;: 0.0007136918202302568, &#39;situs&#39;: 0.0006988772727121752, &#39;panjatkan&#39;: 0.0007192925753824876, &#39;tuhan&#39;: 0.0007268107132405665}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_pr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pagerank_scores</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan 20 kata terpenting</span>
+<span class="n">top_20</span> <span class="o">=</span> <span class="n">sorted_pr</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;kata yang sering muncul (TOP RANGE) 20, yaitu:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">score</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">top_20</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">word</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">score</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kata yang sering muncul (TOP RANGE) 20, yaitu:
+1. data : 0.03129
+2. haji : 0.01818
+3. bayes : 0.01554
+4. and : 0.01358
+5. penelitian : 0.01037
+6. naive : 0.01023
+7. dana : 0.00993
+8. nilai : 0.00981
+9. idf : 0.00955
+10. dokumen : 0.00897
+11. biaya : 0.00890
+12. the : 0.00795
+13. kenaikan : 0.00787
+14. proses : 0.00775
+15. algoritma : 0.00761
+16. sentimen : 0.00754
+17. twitter : 0.00748
+18. text : 0.00731
+19. hasil : 0.00669
+20. teks : 0.00634
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="data_facebook.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Analisis Komunitas</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ekstraksi PDF ke Teks</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-ke-csv">save ke csv</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-dan-membangun-matrix">Preprocessing dan Membangun Matrix</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#word-graph">Word Graph</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pagerank">PageRank</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Vina Rofita (23-028)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

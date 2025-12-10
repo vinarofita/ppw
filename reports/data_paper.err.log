@@ -1,0 +1,58 @@
+Traceback (most recent call last):
+  File "/home/codespace/.local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/python/3.12.1/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/python/3.12.1/lib/python3.12/asyncio/base_events.py", line 684, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/codespace/.local/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import pymupdf
+
+doc = pymupdf.open("contoh.pdf") # open a document
+out = open("output.txt", "wb") # create a text output
+for page in doc: # iterate the document pages
+    text = page.get_text().encode("utf8") # get plain text (is in UTF-8)
+    out.write(text) # write text of page
+    out.write(bytes((12,))) # write page delimiter (form feed 0x0C)
+out.close()
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mFileNotFoundError[39m                         Traceback (most recent call last)
+[32m/tmp/ipykernel_14740/655380305.py[39m in [36m?[39m[34m()[39m
+[32m      1[39m [38;5;28;01mimport[39;00m pymupdf
+[32m      2[39m 
+[32m----> [39m[32m3[39m doc = pymupdf.open([33m"contoh.pdf"[39m) [38;5;66;03m# open a document[39;00m
+[32m      4[39m out = open([33m"output.txt"[39m, [33m"wb"[39m) [38;5;66;03m# create a text output[39;00m
+[32m      5[39m [38;5;28;01mfor[39;00m page [38;5;28;01min[39;00m doc: [38;5;66;03m# iterate the document pages[39;00m
+[32m      6[39m     text = page.get_text().encode([33m"utf8"[39m) [38;5;66;03m# get plain text (is in UTF-8)[39;00m
+
+[32m/usr/local/python/3.12.1/lib/python3.12/site-packages/pymupdf/__init__.py[39m in [36m?[39m[34m(self, filename, stream, filetype, rect, width, height, fontsize)[39m
+[32m   3061[39m                     self.page_count2 = extra.page_count_pdf
+[32m   3062[39m                 [38;5;28;01melse[39;00m:
+[32m   3063[39m                     self.page_count2 = extra.page_count_fz
+[32m   3064[39m         [38;5;28;01mfinally[39;00m:
+[32m-> [39m[32m3065[39m             JM_mupdf_show_errors = JM_mupdf_show_errors_old
+
+[31mFileNotFoundError[39m: no such file: 'contoh.pdf'
+
